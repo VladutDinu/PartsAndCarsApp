@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\dinui\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\dinui\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_WindowsFormsApp4.7087916.00" t="ExcludeRecursive" />
+    <e p="C:\Users\dinui\source\repos\WindowsFormsApp4" t="IncludeFlat">
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="WindowsFormsApp4" t="IncludeRecursive">
+        <e p="AddCar.cs" t="Include" />
+        <e p="AddCar.Designer.cs" t="Include" />
+        <e p="App.config" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Form1.cs" t="Include" />
+        <e p="Form1.Designer.cs" t="Include" />
+        <e p="Form1.resx" t="Include" />
+        <e p="Main.cs" t="Include" />
+        <e p="Main.Designer.cs" t="Include" />
+        <e p="Main.resx" t="Include" />
+        <e p="MainAdmin.cs" t="Include" />
+        <e p="MainAdmin.Designer.cs" t="Include" />
+        <e p="MainAdmin.resx" t="Include" />
+        <e p="Masini.cs" t="Include" />
+        <e p="Masini.Designer.cs" t="Include" />
+        <e p="Masini.resx" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Piese.cs" t="Include" />
+        <e p="Piese.Designer.cs" t="Include" />
+        <e p="Piese.resx" t="Include" />
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+          <e p="Resources.Designer.cs" t="Include" />
+          <e p="Resources.resx" t="Include" />
+          <e p="Settings.Designer.cs" t="Include" />
+          <e p="Settings.settings" t="Include" />
+        </e>
+        <e p="Search.cs" t="Include" />
+        <e p="Search.Designer.cs" t="Include" />
+        <e p="Search.resx" t="Include" />
+        <e p="WindowsFormsApp4.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="WindowsFormsApp4.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>
