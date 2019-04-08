@@ -8,12 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Configuration;
+using System.Collections.Specialized;
+
+
 
 namespace WindowsFormsApp4
 {
+
     public partial class Form1 : Form
     {
-        string cs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\dinui\Desktop\proiect\DBS\Db.mdf;Integrated Security=True;Connect Timeout=30";
+        string cs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=F:\SQL SSMS\Piese.mdf;Integrated Security=True;Connect Timeout=30";
         public Form1()
         {
             InitializeComponent();
@@ -27,14 +32,28 @@ namespace WindowsFormsApp4
      
         private bool verif()
         {
-            SqlConnection sqc = new SqlConnection(cs);
-            string query = "Select Count(*) From LoginTab where Username= '" + textBox1.Text + "' and Password ='" + textBox2.Text + "'";
-            SqlDataAdapter sda = new SqlDataAdapter(query, sqc);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            if (dt.Rows[0][0].ToString() == "1")
-                return true;
-            return false;
+            
+            var connectionString = ConnectionManager.ConnectionString["Database"].ConnectionString;
+            string queryString = "SELECT * FROM Database";
+            using (var connection = new SqlConnection(connectionString))
+            {
+                var command = new SqlCommand(queryString, connection);
+                connection.Open();
+                using (var reader = command.ExecuteReader())
+                {
+                    reader.Read();
+                }
+            }
+            return true;
+
+//            SqlConnection sqc = new SqlConnection(cs);
+//            string query = "Select Count(*) From LoginTab where Username= '" + textBox1.Text + "' and Password ='" + textBox2.Text + "'";
+//            SqlDataAdapter sda = new SqlDataAdapter(query, sqc);
+//            DataTable dt = new DataTable();
+//            sda.Fill(dt);
+//            if (dt.Rows[0][0].ToString() == "1")
+//                return true;
+//            return false;
         }
         private bool verif_admin()
         {

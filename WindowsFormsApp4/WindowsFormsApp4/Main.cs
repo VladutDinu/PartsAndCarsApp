@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp2;
 
 namespace WindowsFormsApp4
 {
@@ -27,8 +28,10 @@ namespace WindowsFormsApp4
         private void pieseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Piese p = new Piese();
+            WindowsFormsApp2.Piese p = new WindowsFormsApp2.Piese(this);
             p.Show();
+            this.Hide();
+           
         }
 
         private void masiniToolStripMenuItem_Click(object sender, EventArgs e)
