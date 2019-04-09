@@ -8,12 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Configuration;
+using System.Collections.Specialized;
+using System.Configuration;
+
 
 namespace WindowsFormsApp4
 {
+
     public partial class Form1 : Form
     {
-        string cs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\dinui\Desktop\proiect\DBS\Db.mdf;Integrated Security=True;Connect Timeout=30";
+        static string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+       
         public Form1()
         {
             InitializeComponent();
@@ -27,19 +33,20 @@ namespace WindowsFormsApp4
      
         private bool verif()
         {
-            SqlConnection sqc = new SqlConnection(cs);
-            string query = "Select Count(*) From LoginTab where Username= '" + textBox1.Text + "' and Password ='" + textBox2.Text + "'";
-            SqlDataAdapter sda = new SqlDataAdapter(query, sqc);
+
+           SqlConnection sqc = new SqlConnection(connectionString);
+           string query = "Select Count(*) From LoginTable where Username= '" + textBox1.Text + "' and Password ='" + textBox2.Text + "'";
+           SqlDataAdapter sda = new SqlDataAdapter(query, sqc);
             DataTable dt = new DataTable();
-            sda.Fill(dt);
-            if (dt.Rows[0][0].ToString() == "1")
-                return true;
+           sda.Fill(dt);
+           if (dt.Rows[0][0].ToString() == "1")
+               return true;
             return false;
         }
         private bool verif_admin()
         {
-            SqlConnection sqc = new SqlConnection(cs);
-            string query = "Select Count(*) From LoginTab where Username= '" + textBox1.Text + "' and Password ='" + textBox2.Text + "' and role= 'admin'";
+            SqlConnection sqc = new SqlConnection(connectionString);
+            string query = "Select Count(*) From LoginTable where Username= '" + textBox1.Text + "' and Password ='" + textBox2.Text + "' and role= 'admin'";
             SqlDataAdapter sda = new SqlDataAdapter(query, sqc);
             DataTable dt = new DataTable();
             sda.Fill(dt);
@@ -81,9 +88,9 @@ namespace WindowsFormsApp4
             }
             else
             {
-                SqlConnection sqc = new SqlConnection(cs);
+                SqlConnection sqc = new SqlConnection(connectionString);
                 sqc.Open();
-                SqlCommand cmd = new SqlCommand("insert into LoginTab (username,password) VALUES  (@username,@password)", sqc);
+                SqlCommand cmd = new SqlCommand("insert into LoginTable (username,password) VALUES  (@username,@password)", sqc);
                 cmd.Parameters.AddWithValue("@username", textBox1.Text);
                 cmd.Parameters.AddWithValue("@password", textBox2.Text);
                 cmd.ExecuteNonQuery();

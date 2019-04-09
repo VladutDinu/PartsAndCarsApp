@@ -10,10 +10,12 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Collections.Specialized;
 using System.Configuration;
-namespace WindowsFormsApp4
+
+namespace WindowsFormsApp2
 {
-    public partial class Masini : Form
+    public partial class Piese : Form
     {
+        Form m;
         static string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
         string query;
         string n;
@@ -22,8 +24,9 @@ namespace WindowsFormsApp4
             SqlCommand cmd;
             SqlConnection con;
             SqlDataAdapter da;
-           
-            query = "Select * from Masini";
+          
+
+            query = "Select * from Piese";
             con = new SqlConnection(connectionString);
             cmd = new SqlCommand(query, con);
             da = new SqlDataAdapter(cmd);
@@ -31,25 +34,21 @@ namespace WindowsFormsApp4
             da.Fill(ds);
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
-                dataGridView1.Rows.Add(ds.Tables[0].Rows[i][0], ds.Tables[0].Rows[i][1], ds.Tables[0].Rows[i][2], ds.Tables[0].Rows[i][3], ds.Tables[0].Rows[i][5], ds.Tables[0].Rows[i][6], ds.Tables[0].Rows[i][4], ds.Tables[0].Rows[i][7], ds.Tables[0].Rows[i][8]);
+                dataGridView1.Rows.Add(ds.Tables[0].Rows[i][0], ds.Tables[0].Rows[i][1], ds.Tables[0].Rows[i][2], ds.Tables[0].Rows[i][3], ds.Tables[0].Rows[i][4]);
             }
-
         }
-        public Masini()
+        public Piese(Form fereastraInitiala)
         {
             InitializeComponent();
+            this.m = fereastraInitiala;
             add();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void DisplayData ()
         {
-            this.Close();
-            Main m = new Main();
-            m.Show();
-        }
-        private void DisplayData()
-        {
-            query = "Select * from Masini";
+          
+
+            query = "Select * from Piese";
             dataGridView1.DataSource = null;
             dataGridView1.Rows.Clear();
             SqlCommand cmd;
@@ -61,15 +60,18 @@ namespace WindowsFormsApp4
             da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
             da.Fill(ds);
-            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            for (int i = 0; i< ds.Tables[0].Rows.Count; i++)
             {
-                dataGridView1.Rows.Add(ds.Tables[0].Rows[i][0], ds.Tables[0].Rows[i][1], ds.Tables[0].Rows[i][2], ds.Tables[0].Rows[i][3], ds.Tables[0].Rows[i][5], ds.Tables[0].Rows[i][6], ds.Tables[0].Rows[i][4], ds.Tables[0].Rows[i][7], ds.Tables[0].Rows[i][8]);
+                dataGridView1.Rows.Add(ds.Tables[0].Rows[i][0], ds.Tables[0].Rows[i][1], ds.Tables[0].Rows[i][2], ds.Tables[0].Rows[i][3], ds.Tables[0].Rows[i][4]);
             }
+
         }
-        private void buy()
+
+        private void  buy()
         {
-           
-            query = "DELETE From Masini where Id=@Id";
+         
+
+            query = "DELETE From Piese where Id=@Id";
             SqlConnection con = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(query, con);
             con.Open();
@@ -77,9 +79,6 @@ namespace WindowsFormsApp4
             cmd.ExecuteNonQuery();
             con.Close();
             DisplayData();
-        }
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
         }
 
@@ -88,7 +87,13 @@ namespace WindowsFormsApp4
             buy();
         }
 
-        private void Masini_Load(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            m.Show();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

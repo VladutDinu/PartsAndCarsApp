@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp2;
 
 namespace WindowsFormsApp4
 {
@@ -44,6 +45,21 @@ namespace WindowsFormsApp4
             this.Hide();
             Masini m = new Masini();
             m.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AddPiese ap = new AddPiese();
+            ap.Show();
+            this.Hide();
+        }
+
+        private void pieseToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            WindowsFormsApp2.Piese p = new WindowsFormsApp2.Piese(this);
+            p.Show();
+            this.Hide();
         }
     }
 }

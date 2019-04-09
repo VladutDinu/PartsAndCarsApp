@@ -1,0 +1,22 @@
+G:\Proiect pclp2\WindowsFormsApp4\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe.config
+G:\Proiect pclp2\WindowsFormsApp4\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe
+G:\Proiect pclp2\WindowsFormsApp4\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.pdb
+G:\Proiect pclp2\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csprojAssemblyReference.cache
+G:\Proiect pclp2\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Piese.resources
+G:\Proiect pclp2\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Properties.Resources.resources
+G:\Proiect pclp2\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.GenerateResource.cache
+G:\Proiect pclp2\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.CoreCompileInputs.cache
+G:\Proiect pclp2\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.exe
+G:\Proiect pclp2\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.pdb
+G:\Proiect pclp2\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.AddPiese.resources
+C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe.config
+C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe
+C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.pdb
+C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csprojAssemblyReference.cache
+C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.AddPiese.resources
+C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Piese.resources
+C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Properties.Resources.resources
+C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.GenerateResource.cache
+C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.CoreCompileInputs.cache
+C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.exe
+C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.pdb

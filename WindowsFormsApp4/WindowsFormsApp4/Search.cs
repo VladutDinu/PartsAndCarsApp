@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-
+using System.Collections.Specialized;
+using System.Configuration;
 namespace WindowsFormsApp4
 {
    
     public partial class Search : Form
     {
-        string cs;
+        static string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
         string query;
         string n;
         private void add()
@@ -22,9 +23,9 @@ namespace WindowsFormsApp4
             SqlCommand cmd;
             SqlConnection con;
             SqlDataAdapter da;
-            cs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\dinui\Desktop\proiect\DBS\Db.mdf;Integrated Security=True;Connect Timeout=30";
-            query = "Select * from Masini_p";
-            con = new SqlConnection(cs);
+           
+            query = "Select * from Masini";
+            con = new SqlConnection(connectionString);
             cmd = new SqlCommand(query, con);
             da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
@@ -58,7 +59,7 @@ namespace WindowsFormsApp4
         }
         private void check()
         {
-            query = "Select * from Masini_p";
+            query = "Select * from Masini";
             if (comboBox1.SelectedIndex != -1 )
                 if(!query.Contains("where"))
                 query += " where Marca ='" + comboBox1.SelectedItem + "'";
@@ -122,14 +123,14 @@ namespace WindowsFormsApp4
         }
         private void search_m()
         {
-            query = "Select * from Masini_p";
-            cs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\dinui\Desktop\proiect\DBS\Db.mdf;Integrated Security=True;Connect Timeout=30";
+            query = "Select * from Masini";
+            
             check();
             
             SqlCommand cmd;
             SqlConnection con;
             SqlDataAdapter da;
-            con = new SqlConnection(cs);
+            con = new SqlConnection(connectionString);
             cmd = new SqlCommand(query, con);
             da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
@@ -175,15 +176,15 @@ namespace WindowsFormsApp4
         }
         private void DisplayData()
         {
-            cs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\dinui\Desktop\proiect\DBS\Db.mdf;Integrated Security=True;Connect Timeout=30";
-            query = "Select * from Masini_p where Marca='" + comboBox1.SelectedItem + "' and Capacitate='" + comboBox2.SelectedItem + "'";
+           
+            query = "Select * from Masini where Marca='" + comboBox1.SelectedItem + "' and Capacitate='" + comboBox2.SelectedItem + "'";
             dataGridView1.DataSource = null;
             dataGridView1.Rows.Clear();
             SqlCommand cmd;
             SqlConnection con;
             SqlDataAdapter da;
 
-            con = new SqlConnection(cs);
+            con = new SqlConnection(connectionString);
             cmd = new SqlCommand(query, con);
             da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
@@ -195,9 +196,9 @@ namespace WindowsFormsApp4
         }
         private void buy()
         {
-            cs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\dinui\Desktop\proiect\DBS\Db.mdf;Integrated Security=True;Connect Timeout=30";
-            query = "DELETE From Masini_p where Id=@Id";
-            SqlConnection con = new SqlConnection(cs);
+   
+            query = "DELETE From Masini where Id=@Id";
+            SqlConnection con = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(query, con);
             con.Open();
             cmd.Parameters.AddWithValue("@id", dataGridView1.CurrentRow.Cells[0].Value.ToString());
@@ -233,7 +234,7 @@ namespace WindowsFormsApp4
 
         private void label2_Click(object sender, EventArgs e)
         {
-            query = "Select * from Masini_p";
+            query = "Select * from Masini";
             comboBox1.SelectedIndex = -1;
             comboBox2.SelectedIndex = -1;
             comboBox4.SelectedIndex = -1;

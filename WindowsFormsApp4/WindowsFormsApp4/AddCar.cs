@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace WindowsFormsApp4
 {
@@ -17,7 +18,7 @@ namespace WindowsFormsApp4
         {
             InitializeComponent();
         }
-        string cs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\dinui\Desktop\proiect\DBS\Db.mdf;Integrated Security=True;Connect Timeout=30";
+      static string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
 
         private void AddCar_Load(object sender, EventArgs e)
         {
@@ -41,9 +42,9 @@ namespace WindowsFormsApp4
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SqlConnection sqc = new SqlConnection(cs);
+            SqlConnection sqc = new SqlConnection(connectionString);
             sqc.Open();
-            SqlCommand cmd = new SqlCommand("insert into Masini_p (Marca, Capacitate, An, Km, Combustibil, Pret, Descriere) VALUES  (@Marca, @Capacitate, @An, @Km, @Combustibil, @Pret, @Descriere)", sqc);
+            SqlCommand cmd = new SqlCommand("insert into Masini (Marca, Capacitate, An, Km, Combustibil, Pret, Descriere) VALUES  (@Marca, @Capacitate, @An, @Km, @Combustibil, @Pret, @Descriere)", sqc);
             cmd.Parameters.AddWithValue("@Marca", textBox1.Text);
             cmd.Parameters.AddWithValue("@Capacitate", textBox2.Text);
             cmd.Parameters.AddWithValue("@An", textBox5.Text);

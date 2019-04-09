@@ -33,6 +33,7 @@
             this.pieseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adaugaMasinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,6 +47,7 @@
             this.adaugaMasinaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(800, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
@@ -62,6 +64,7 @@
             this.pieseToolStripMenuItem.Name = "pieseToolStripMenuItem";
             this.pieseToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
             this.pieseToolStripMenuItem.Text = "Piese";
+            this.pieseToolStripMenuItem.Click += new System.EventHandler(this.pieseToolStripMenuItem_Click_1);
             // 
             // searchToolStripMenuItem
             // 
@@ -77,12 +80,31 @@
             this.adaugaMasinaToolStripMenuItem.Text = "Adauga Masina";
             this.adaugaMasinaToolStripMenuItem.Click += new System.EventHandler(this.adaugaMasinaToolStripMenuItem_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(357, 0);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(143, 28);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Adauga Piesa";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.UseWaitCursor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainAdmin";
             this.Text = "MainAdmin";
             this.menuStrip1.ResumeLayout(false);
@@ -99,5 +121,6 @@
         private System.Windows.Forms.ToolStripMenuItem pieseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adaugaMasinaToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }

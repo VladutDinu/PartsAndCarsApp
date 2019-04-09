@@ -1,6 +1,6 @@
-﻿namespace WindowsFormsApp4
+﻿namespace WindowsFormsApp2
 {
-    partial class Masini
+    partial class Piese
     {
         /// <summary>
         /// Required designer variable.
@@ -28,28 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Capacitate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Km = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Producator = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pret = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Combustibil = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.An = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Material = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descriere = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Poza = new System.Windows.Forms.DataGridViewImageColumn();
-            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(188, 316);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(59, 23);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Cumpara";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(91, 316);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(59, 23);
-            this.button1.TabIndex = 0;
+            this.button1.TabIndex = 2;
             this.button1.Text = "Inapoi";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -58,109 +65,67 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.Marca,
-            this.Capacitate,
-            this.Km,
+            this.ID,
+            this.Producator,
             this.Pret,
-            this.Combustibil,
-            this.An,
-            this.Descriere,
-            this.Poza});
+            this.Material,
+            this.Descriere});
             this.dataGridView1.Location = new System.Drawing.Point(28, 30);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(707, 174);
+            this.dataGridView1.Size = new System.Drawing.Size(543, 174);
             this.dataGridView1.TabIndex = 14;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // Id
+            // ID
             // 
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
             // 
-            // Marca
+            // Producator
             // 
-            this.Marca.HeaderText = "Marca";
-            this.Marca.Name = "Marca";
-            // 
-            // Capacitate
-            // 
-            this.Capacitate.HeaderText = "Capacitate";
-            this.Capacitate.Name = "Capacitate";
-            // 
-            // Km
-            // 
-            this.Km.HeaderText = "Km";
-            this.Km.Name = "Km";
+            this.Producator.HeaderText = "Producator";
+            this.Producator.Name = "Producator";
             // 
             // Pret
             // 
             this.Pret.HeaderText = "Pret";
             this.Pret.Name = "Pret";
             // 
-            // Combustibil
+            // Material
             // 
-            this.Combustibil.HeaderText = "Combustibil";
-            this.Combustibil.Name = "Combustibil";
-            // 
-            // An
-            // 
-            this.An.HeaderText = "An";
-            this.An.Name = "An";
+            this.Material.HeaderText = "Material";
+            this.Material.Name = "Material";
             // 
             // Descriere
             // 
             this.Descriere.HeaderText = "Descriere";
             this.Descriere.Name = "Descriere";
             // 
-            // Poza
-            // 
-            this.Poza.HeaderText = "Poza";
-            this.Poza.Name = "Poza";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(188, 316);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(59, 23);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Cumpara";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // Masini
+            // Piese
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(924, 366);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "Masini";
-            this.Text = "Masini";
-            this.Load += new System.EventHandler(this.Masini_Load);
+            this.Controls.Add(this.button2);
+            this.Name = "Piese";
+            this.Text = "Piese";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
+        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Capacitate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Km;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Producator;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pret;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Combustibil;
-        private System.Windows.Forms.DataGridViewTextBoxColumn An;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Material;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descriere;
-        private System.Windows.Forms.DataGridViewImageColumn Poza;
     }
 }
+
