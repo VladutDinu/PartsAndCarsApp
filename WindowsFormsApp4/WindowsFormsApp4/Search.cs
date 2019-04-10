@@ -38,21 +38,21 @@ namespace WindowsFormsApp4
         }
         Form m;
         public Search(Form fereastraInitiala)
-        {
+        {   
             InitializeComponent();
             this.m = fereastraInitiala;
-            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\dinui\source\repos\WindowsFormsApp4\WindowsFormsApp4\txt\marca.txt");
+            string[] lines = System.IO.File.ReadAllLines(@".\txt\marca.txt");
             foreach (string line in lines)
             {
                 comboBox1.Items.Add(line);
             }
-            string[] lines1 = System.IO.File.ReadAllLines(@"C:\Users\dinui\source\repos\WindowsFormsApp4\WindowsFormsApp4\txt\capacitate.txt");
+            string[] lines1 = System.IO.File.ReadAllLines(@".\txt\capacitate.txt");
             foreach (string line in lines1)
             {
                 comboBox2.Items.Add(line);
                 comboBox4.Items.Add(line);
             }
-            string[] lines2 = System.IO.File.ReadAllLines(@"C:\Users\dinui\source\repos\WindowsFormsApp4\WindowsFormsApp4\txt\combustibil.txt");
+            string[] lines2 = System.IO.File.ReadAllLines(@".\txt\combustibil.txt");
             foreach (string line in lines2)
             {
                 comboBox5.Items.Add(line);

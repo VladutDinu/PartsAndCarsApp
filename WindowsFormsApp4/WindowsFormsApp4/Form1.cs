@@ -19,7 +19,6 @@ namespace WindowsFormsApp4
     public partial class Form1 : Form
     {
         static string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
-     
         
         public Form1()
         {
@@ -34,7 +33,6 @@ namespace WindowsFormsApp4
      
         private bool verif()
         {
-
            SqlConnection sqc = new SqlConnection(connectionString);
            string query = "Select Count(*) From LoginTable where Username= '" + textBox1.Text + "' and Password ='" + textBox2.Text + "'";
            SqlDataAdapter sda = new SqlDataAdapter(query, sqc);

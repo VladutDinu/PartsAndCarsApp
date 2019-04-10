@@ -1,0 +1,8 @@
+Benzina
+Motorina
+CNG
+GPL
+Benzina+GPL
+Hidrogen
+Electric
+Hibrid

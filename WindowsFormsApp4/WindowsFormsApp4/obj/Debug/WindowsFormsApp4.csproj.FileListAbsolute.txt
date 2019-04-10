@@ -46,7 +46,6 @@ C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsAp
 C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp4\obj\Debug\WindowsFormsApp4.Main.resources
 C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp4\obj\Debug\WindowsFormsApp4.MainAdmin.resources
 C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp4\obj\Debug\WindowsFormsApp4.Masini.resources
-C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp4\obj\Debug\WindowsFormsApp4.Piese.resources
 C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp4\obj\Debug\WindowsFormsApp4.Properties.Resources.resources
 C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp4\obj\Debug\WindowsFormsApp4.Search.resources
 C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp4\obj\Debug\WindowsFormsApp4.csproj.GenerateResource.cache

@@ -28,7 +28,7 @@ namespace WindowsFormsApp4
         private void pieseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Piese p = new Piese();
+            WindowsFormsApp2.Piese p = new WindowsFormsApp2.Piese(this);
             p.Show();
         }
 
@@ -47,19 +47,12 @@ namespace WindowsFormsApp4
             m.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            AddPiese ap = new AddPiese();
-            ap.Show();
-            
-        }
-
         private void pieseToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             this.Hide();
             WindowsFormsApp2.Piese p = new WindowsFormsApp2.Piese(this);
             p.Show();
-            this.Hide();
+            
         }
 
         private void adaugaPiesaToolStripMenuItem_Click(object sender, EventArgs e)

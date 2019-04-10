@@ -97,5 +97,10 @@ namespace WindowsFormsApp2
         {
 
         }
+
+        private void Piese_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
