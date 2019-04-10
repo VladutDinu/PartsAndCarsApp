@@ -34,6 +34,7 @@
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adaugaMasinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
+            this.adaugaPiesaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +45,8 @@
             this.masiniToolStripMenuItem,
             this.pieseToolStripMenuItem,
             this.searchToolStripMenuItem,
-            this.adaugaMasinaToolStripMenuItem});
+            this.adaugaMasinaToolStripMenuItem,
+            this.adaugaPiesaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
@@ -86,8 +88,8 @@
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(357, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Location = new System.Drawing.Point(354, 71);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(143, 28);
             this.button1.TabIndex = 2;
@@ -95,6 +97,13 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.UseWaitCursor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // adaugaPiesaToolStripMenuItem
+            // 
+            this.adaugaPiesaToolStripMenuItem.Name = "adaugaPiesaToolStripMenuItem";
+            this.adaugaPiesaToolStripMenuItem.Size = new System.Drawing.Size(111, 24);
+            this.adaugaPiesaToolStripMenuItem.Text = "Adauga Piesa";
+            this.adaugaPiesaToolStripMenuItem.Click += new System.EventHandler(this.adaugaPiesaToolStripMenuItem_Click);
             // 
             // MainAdmin
             // 
@@ -107,6 +116,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainAdmin";
             this.Text = "MainAdmin";
+            this.Load += new System.EventHandler(this.MainAdmin_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -122,5 +132,6 @@
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adaugaMasinaToolStripMenuItem;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripMenuItem adaugaPiesaToolStripMenuItem;
     }
 }

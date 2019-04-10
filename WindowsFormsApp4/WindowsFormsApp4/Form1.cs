@@ -19,7 +19,8 @@ namespace WindowsFormsApp4
     public partial class Form1 : Form
     {
         static string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
-       
+     
+        
         public Form1()
         {
             InitializeComponent();
@@ -56,7 +57,6 @@ namespace WindowsFormsApp4
         }
         private void login()
         {
-            
             if (verif()&&!verif_admin())
             {
                 this.Hide();
@@ -103,8 +103,8 @@ namespace WindowsFormsApp4
         private void button1_Click(object sender, EventArgs e)
         {   if (check())
                 login();
-            else MessageBox.Show("Nume/Parola invalida");
             
+            else MessageBox.Show("Nume/Parola invalida");
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -18,7 +18,7 @@ namespace WindowsFormsApp2
         Form m;
         static string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
         string query;
-        string n;
+      
         private void add()
         {
             SqlCommand cmd;

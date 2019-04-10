@@ -16,7 +16,8 @@ namespace WindowsFormsApp4
     {
         static string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
         string query;
-        string n;
+        Form m;
+       
         private void add()
         {
             SqlCommand cmd;
@@ -35,16 +36,16 @@ namespace WindowsFormsApp4
             }
 
         }
-        public Masini()
+     
+        public Masini(Form fereastraInitiala)
         {
             InitializeComponent();
+            this.m = fereastraInitiala;
             add();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
-            Main m = new Main();
+            this.Hide();
             m.Show();
         }
         private void DisplayData()

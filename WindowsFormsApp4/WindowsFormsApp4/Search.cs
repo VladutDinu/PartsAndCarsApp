@@ -17,7 +17,7 @@ namespace WindowsFormsApp4
     {
         static string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
         string query;
-        string n;
+      
         private void add()
         {
             SqlCommand cmd;
@@ -36,9 +36,11 @@ namespace WindowsFormsApp4
             }
 
         }
-        public Search()
+        Form m;
+        public Search(Form fereastraInitiala)
         {
             InitializeComponent();
+            this.m = fereastraInitiala;
             string[] lines = System.IO.File.ReadAllLines(@"C:\Users\dinui\source\repos\WindowsFormsApp4\WindowsFormsApp4\txt\marca.txt");
             foreach (string line in lines)
             {
@@ -161,7 +163,6 @@ namespace WindowsFormsApp4
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
-            Main m = new Main();
             m.Show();
         }
 

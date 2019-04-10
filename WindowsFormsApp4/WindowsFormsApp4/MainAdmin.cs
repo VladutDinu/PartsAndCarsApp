@@ -21,7 +21,7 @@ namespace WindowsFormsApp4
         private void searchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Search s = new Search();
+            Search s = new Search(this);
             s.Show();
         }
 
@@ -43,7 +43,7 @@ namespace WindowsFormsApp4
         private void masiniToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             this.Hide();
-            Masini m = new Masini();
+            Masini m = new Masini(this);
             m.Show();
         }
 
@@ -51,7 +51,7 @@ namespace WindowsFormsApp4
         {
             AddPiese ap = new AddPiese();
             ap.Show();
-            this.Hide();
+            
         }
 
         private void pieseToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -60,6 +60,17 @@ namespace WindowsFormsApp4
             WindowsFormsApp2.Piese p = new WindowsFormsApp2.Piese(this);
             p.Show();
             this.Hide();
+        }
+
+        private void adaugaPiesaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddPiese ap = new AddPiese();
+            ap.Show();
+        }
+
+        private void MainAdmin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

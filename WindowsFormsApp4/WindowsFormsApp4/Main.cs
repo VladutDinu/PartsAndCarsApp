@@ -21,7 +21,7 @@ namespace WindowsFormsApp4
         private void searchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Search s = new Search();
+            Search s = new Search(this);
             s.Show();
         }
 
@@ -37,7 +37,7 @@ namespace WindowsFormsApp4
         private void masiniToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Masini m = new Masini();
+            Masini m = new Masini(this);
             m.Show();
         }
     }

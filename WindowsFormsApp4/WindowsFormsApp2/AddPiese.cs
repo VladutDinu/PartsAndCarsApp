@@ -44,9 +44,6 @@ namespace WindowsFormsApp2
             sqc.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
+       
     }
 }
