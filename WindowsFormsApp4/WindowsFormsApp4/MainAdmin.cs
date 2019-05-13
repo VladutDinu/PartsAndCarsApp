@@ -11,7 +11,7 @@ using WindowsFormsApp2;
 
 namespace WindowsFormsApp4
 {
-    public partial class MainAdmin : Form
+    public partial class MainAdmin : MetroFramework.Forms.MetroForm
     {
         public MainAdmin()
         {

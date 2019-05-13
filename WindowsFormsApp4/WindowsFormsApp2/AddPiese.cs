@@ -12,7 +12,7 @@ using System.Configuration;
 
 namespace WindowsFormsApp2
 {
-    public partial class AddPiese : Form
+    public partial class AddPiese : MetroFramework.Forms.MetroForm
     {
         public AddPiese()
         {

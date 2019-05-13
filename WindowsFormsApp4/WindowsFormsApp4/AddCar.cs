@@ -12,7 +12,7 @@ using System.Configuration;
 
 namespace WindowsFormsApp4
 {
-    public partial class AddCar : Form
+    public partial class AddCar : MetroFramework.Forms.MetroForm
     {
         public AddCar()
         {

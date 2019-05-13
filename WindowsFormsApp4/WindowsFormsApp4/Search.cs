@@ -13,7 +13,7 @@ using System.Configuration;
 namespace WindowsFormsApp4
 {
    
-    public partial class Search : Form
+    public partial class Search : MetroFramework.Forms.MetroForm
     {
         static string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
         string query;
@@ -41,18 +41,18 @@ namespace WindowsFormsApp4
         {   
             InitializeComponent();
             this.m = fereastraInitiala;
-            string[] lines = System.IO.File.ReadAllLines(@".\txt\marca.txt");
+            string[] lines = System.IO.File.ReadAllLines(System.AppDomain.CurrentDomain.BaseDirectory + "marca.txt");
             foreach (string line in lines)
             {
                 comboBox1.Items.Add(line);
             }
-            string[] lines1 = System.IO.File.ReadAllLines(@".\txt\capacitate.txt");
+            string[] lines1 = System.IO.File.ReadAllLines(System.AppDomain.CurrentDomain.BaseDirectory + "capacitate.txt");
             foreach (string line in lines1)
             {
                 comboBox2.Items.Add(line);
                 comboBox4.Items.Add(line);
             }
-            string[] lines2 = System.IO.File.ReadAllLines(@".\txt\combustibil.txt");
+            string[] lines2 = System.IO.File.ReadAllLines(System.AppDomain.CurrentDomain.BaseDirectory + "combustibil.txt");
             foreach (string line in lines2)
             {
                 comboBox5.Items.Add(line);

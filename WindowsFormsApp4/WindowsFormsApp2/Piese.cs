@@ -13,7 +13,7 @@ using System.Configuration;
 
 namespace WindowsFormsApp2
 {
-    public partial class Piese : Form
+    public partial class Piese : MetroFramework.Forms.MetroForm
     {
         Form m;
         static string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;

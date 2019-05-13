@@ -16,7 +16,7 @@ using System.Configuration;
 namespace WindowsFormsApp4
 {
 
-    public partial class Form1 : Form
+    public partial class Form1 : MetroFramework.Forms.MetroForm
     {
         static string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
         
@@ -117,6 +117,11 @@ namespace WindowsFormsApp4
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }

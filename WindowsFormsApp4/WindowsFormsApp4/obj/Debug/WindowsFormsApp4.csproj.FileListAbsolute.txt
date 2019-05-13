@@ -53,3 +53,7 @@ C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsAp
 C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp4\obj\Debug\WindowsFormsApp4.csproj.CopyComplete
 C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp4\obj\Debug\WindowsFormsApp4.exe
 C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp4\obj\Debug\WindowsFormsApp4.pdb
+C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp4\bin\Debug\MetroFramework.Design.dll
+C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp4\bin\Debug\MetroFramework.dll
+C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp4\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp4\obj\Debug\WindowsFormsApp4.exe.config

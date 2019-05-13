@@ -12,7 +12,7 @@ using System.Collections.Specialized;
 using System.Configuration;
 namespace WindowsFormsApp4
 {
-    public partial class Masini : Form
+    public partial class Masini : MetroFramework.Forms.MetroForm
     {
         static string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
         string query;

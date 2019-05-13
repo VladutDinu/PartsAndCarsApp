@@ -70,7 +70,7 @@
             this.Pret,
             this.Material,
             this.Descriere});
-            this.dataGridView1.Location = new System.Drawing.Point(37, 37);
+            this.dataGridView1.Location = new System.Drawing.Point(23, 90);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(544, 214);
@@ -110,7 +110,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Piese";
             this.Text = "Piese";
             this.Load += new System.EventHandler(this.Piese_Load);
