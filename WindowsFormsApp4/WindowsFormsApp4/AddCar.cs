@@ -44,7 +44,7 @@ namespace WindowsFormsApp4
         {
             SqlConnection sqc = new SqlConnection(connectionString);
             sqc.Open();
-            SqlCommand cmd = new SqlCommand("insert into Masini (Marca, Capacitate, An, Km, Combustibil, Pret, Descriere) VALUES  (@Marca, @Capacitate, @An, @Km, @Combustibil, @Pret, @Descriere)", sqc);
+            SqlCommand cmd = new SqlCommand("insert into Masini (Marca, Capacitate, An, Km, Combustibil, Pret, Descriere, CodSasiu) VALUES  (@Marca, @Capacitate, @An, @Km, @Combustibil, @Pret, @Descriere, @CodSasiu)", sqc);
             cmd.Parameters.AddWithValue("@Marca", textBox1.Text);
             cmd.Parameters.AddWithValue("@Capacitate", textBox2.Text);
             cmd.Parameters.AddWithValue("@An", textBox5.Text);
@@ -52,6 +52,7 @@ namespace WindowsFormsApp4
             cmd.Parameters.AddWithValue("@Combustibil", textBox3.Text);
             cmd.Parameters.AddWithValue("@Pret", textBox6.Text);
             cmd.Parameters.AddWithValue("@Descriere", textBox7.Text);
+            cmd.Parameters.AddWithValue("@CodSasiu", textBox8.Text);
             cmd.ExecuteNonQuery();
             MessageBox.Show("Inregistrat");
             sqc.Close();

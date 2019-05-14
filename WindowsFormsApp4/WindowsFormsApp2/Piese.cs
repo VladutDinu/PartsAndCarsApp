@@ -18,9 +18,35 @@ namespace WindowsFormsApp2
         Form m;
         static string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
         string query;
-      
+        public List<PartsInfo> cd = new List<PartsInfo>();
+        int count;
+        private void getData()
+        {
+            SqlCommand cmd;
+            SqlConnection con;
+            con = new SqlConnection(connectionString);
+            con.Open();
+            cmd = new SqlCommand("Select * from Piese", con);
+            using (SqlDataReader rdr = cmd.ExecuteReader())
+            {
+                int i = 0;
+                while (rdr.Read())
+                {
+                    i++;
+                    PartsInfo c = new PartsInfo();
+                    c.id = Convert.ToInt32(rdr[0]);
+                    c.Producator = rdr[1].ToString();
+                    c.Pret = rdr[2].ToString();
+                    c.Material = rdr[3].ToString();
+                    c.Descriere = rdr[4].ToString();
+                    cd.Add(c);
+                }
+            }
+            con.Close();
+        }
         private void add()
         {
+            getData();
             SqlCommand cmd;
             SqlConnection con;
             SqlDataAdapter da;
@@ -32,9 +58,10 @@ namespace WindowsFormsApp2
             da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
             da.Fill(ds);
-            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            count = ds.Tables[0].Rows.Count;
+            for (int i = 0; i < count; i++)
             {
-                dataGridView1.Rows.Add(ds.Tables[0].Rows[i][0], ds.Tables[0].Rows[i][1], ds.Tables[0].Rows[i][2], ds.Tables[0].Rows[i][3], ds.Tables[0].Rows[i][4]);
+                dataGridView1.Rows.Add(cd[i].id, cd[i].Producator, cd[i].Pret, cd[i].Material, cd[i].Descriere);
             }
         }
         public Piese(Form fereastraInitiala)

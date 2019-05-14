@@ -40,5 +40,18 @@ namespace WindowsFormsApp4
             Masini m = new Masini(this);
             m.Show();
         }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchPieseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+                this.Hide();
+                WindowsFormsApp2.SearchPiese s = new WindowsFormsApp2.SearchPiese(this);
+                s.Show();
+        }
+        
     }
 }

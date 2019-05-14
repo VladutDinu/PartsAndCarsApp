@@ -63,6 +63,7 @@
     <Compile Include="AddCar.Designer.cs">
       <DependentUpon>AddCar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cars.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

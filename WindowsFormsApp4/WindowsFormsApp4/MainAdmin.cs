@@ -60,10 +60,17 @@ namespace WindowsFormsApp4
             AddPiese ap = new AddPiese();
             ap.Show();
         }
-
+		
         private void MainAdmin_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void searchPiesaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            WindowsFormsApp2.SearchPiese s = new WindowsFormsApp2.SearchPiese(this);
+            s.Show();
         }
     }
 }

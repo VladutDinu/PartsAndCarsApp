@@ -34,6 +34,7 @@
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adaugaMasinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adaugaPiesaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchPiesaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,11 +46,12 @@
             this.pieseToolStripMenuItem,
             this.searchToolStripMenuItem,
             this.adaugaMasinaToolStripMenuItem,
-            this.adaugaPiesaToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.adaugaPiesaToolStripMenuItem,
+            this.searchPiesaToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(20, 60);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(760, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -88,11 +90,17 @@
             this.adaugaPiesaToolStripMenuItem.Text = "Adauga Piesa";
             this.adaugaPiesaToolStripMenuItem.Click += new System.EventHandler(this.adaugaPiesaToolStripMenuItem_Click);
             // 
+            // searchPiesaToolStripMenuItem
+            // 
+            this.searchPiesaToolStripMenuItem.Name = "searchPiesaToolStripMenuItem";
+            this.searchPiesaToolStripMenuItem.Size = new System.Drawing.Size(99, 24);
+            this.searchPiesaToolStripMenuItem.Text = "SearchPiesa";
+            this.searchPiesaToolStripMenuItem.Click += new System.EventHandler(this.searchPiesaToolStripMenuItem_Click);
+            // 
             // MainAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.menuStrip1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -114,5 +122,6 @@
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adaugaMasinaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adaugaPiesaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem searchPiesaToolStripMenuItem;
     }
 }

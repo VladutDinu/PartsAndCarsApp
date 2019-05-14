@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Collections.Specialized;
-using System.Configuration;
 
 
 namespace WindowsFormsApp4
@@ -125,5 +124,7 @@ namespace WindowsFormsApp4
         {
 
         }
+
+       
     }
 }
