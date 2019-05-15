@@ -1,12 +1,15 @@
-plastic
-aluminiu
-fier
-otel
-nichel
-sticla
-cauciuc textil
-titan
-aliaj
-piele
-alcantara
-lemn
+Plastic
+Aluminiu
+Fier
+Otel
+Nichel
+Sticla
+Cauciuc textil
+Titan
+Aliaj
+Piele
+Alcantara
+Lemn
+Ulei
+Iridium
+Crom

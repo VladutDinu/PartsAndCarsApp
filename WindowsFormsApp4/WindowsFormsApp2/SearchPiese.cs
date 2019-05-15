@@ -60,7 +60,7 @@ namespace WindowsFormsApp2
             count = ds.Tables[0].Rows.Count;
             for (int i = 0; i < count; i++)
             {
-                dataGridView1.Rows.Add(cd[i].id, cd[i].Producator, cd[i].Pret, cd[i].Material, cd[i].Descriere);
+                dataGridView1.Rows.Add(cd[i].id, cd[i].Producator, cd[i].Material, cd[i].Pret, cd[i].Descriere);
             }
         }
         Form m;
@@ -96,7 +96,12 @@ namespace WindowsFormsApp2
             comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
             add();
         }
-
+        public bool verify(TextBox a,TextBox b)
+        {   if(a.Text!="" && b.Text!="")
+                if (Convert.ToInt32(a.Text) > Convert.ToInt32(b.Text))
+                 return true;
+            return false;
+        }
         private void check()
         {
             query = "Select * from Piese ";
@@ -111,24 +116,22 @@ namespace WindowsFormsApp2
 
 
             if (textBox3.Text != "" && textBox4.Text != "")
-                if (!query.Contains("where"))
-                    query += " where Pret BETWEEN '" + textBox3.Text + "' AND  '" + textBox4.Text + "'";
-                else query += " and Pret BETWEEN '" + textBox3.Text + "' AND '" + textBox4.Text + "'";
+                    if (!query.Contains("where"))
+                        query += " where Pret BETWEEN '" + Convert.ToInt32(textBox3.Text) + "' AND  '" + Convert.ToInt32(textBox4.Text) + "'";
+                    else query += " and Pret BETWEEN '" + Convert.ToInt32(textBox3.Text) + "' AND '" + Convert.ToInt32(textBox4.Text) + "'";
             else if (textBox4.Text != "")
                 if (!query.Contains("where"))
-                    query += " where Pret <= '" + textBox4.Text + "'";
-                else query += " and Pret <='" + textBox4.Text + "'";
+                    query += " where Pret <= '" + Convert.ToInt32(textBox4.Text) + "'";
+                else query += " and Pret <='" + Convert.ToInt32(textBox4.Text) + "'";
             else if (textBox3.Text != "")
                 if (!query.Contains("where"))
-                    query += " where Pret >='" + textBox3.Text + "'";
-                else query += " and Pret >='" + textBox3.Text + "'";
-
+                    query += " where Pret >='" + Convert.ToInt32(textBox3.Text) + "'";
+                else query += " and Pret >='" + Convert.ToInt32(textBox3.Text) + "'";
         }
 
         private void search_m()
         {
             query = "Select * from Piese ";
-
             check();
 
             SqlCommand cmd;
@@ -157,9 +160,13 @@ namespace WindowsFormsApp2
         private void button1_Click(object sender, EventArgs e)
         {
             //cautare
-            dataGridView1.DataSource = null;
-            dataGridView1.Rows.Clear();
-            search_m();
+            if (!verify(textBox3, textBox4))
+            {
+                dataGridView1.DataSource = null;
+                dataGridView1.Rows.Clear();
+                search_m();
+            }
+            else MessageBox.Show("Filtre gresite");
 
         }
 
@@ -187,7 +194,7 @@ namespace WindowsFormsApp2
             da.Fill(ds);
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
-               dataGridView1.Rows.Add(ds.Tables[0].Rows[i][0], ds.Tables[0].Rows[i][1], ds.Tables[0].Rows[i][3], ds.Tables[0].Rows[i][2], ds.Tables[0].Rows[i][4]);
+               dataGridView1.Rows.Add(ds.Tables[0].Rows[i][0], ds.Tables[0].Rows[i][1], ds.Tables[0].Rows[i][2], ds.Tables[0].Rows[i][3], ds.Tables[0].Rows[i][4]);
             }
         }
 

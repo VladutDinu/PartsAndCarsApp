@@ -35,6 +35,15 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Capacitate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Km = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pret = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Combustibil = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.An = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descriere = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Poza = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,15 +60,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Capacitate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Km = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pret = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Combustibil = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.An = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descriere = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Poza = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -122,6 +122,59 @@
             this.dataGridView1.Size = new System.Drawing.Size(936, 276);
             this.dataGridView1.TabIndex = 13;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            // 
+            // Marca
+            // 
+            this.Marca.HeaderText = "Marca";
+            this.Marca.Name = "Marca";
+            // 
+            // Capacitate
+            // 
+            this.Capacitate.HeaderText = "Capacitate";
+            this.Capacitate.Name = "Capacitate";
+            // 
+            // Km
+            // 
+            this.Km.HeaderText = "Km";
+            this.Km.Name = "Km";
+            // 
+            // Pret
+            // 
+            this.Pret.HeaderText = "Pret";
+            this.Pret.Name = "Pret";
+            // 
+            // Combustibil
+            // 
+            this.Combustibil.HeaderText = "Combustibil";
+            this.Combustibil.Name = "Combustibil";
+            // 
+            // An
+            // 
+            this.An.HeaderText = "An";
+            this.An.Name = "An";
+            // 
+            // Descriere
+            // 
+            this.Descriere.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Descriere.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Descriere.HeaderText = "Descriere";
+            this.Descriere.Name = "Descriere";
+            this.Descriere.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Descriere.Width = 98;
+            // 
+            // Poza
+            // 
+            this.Poza.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Poza.HeaderText = "CodSasiu";
+            this.Poza.Name = "Poza";
+            this.Poza.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Poza.Width = 97;
             // 
             // comboBox1
             // 
@@ -218,17 +271,18 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(166, 97);
+            this.textBox3.Location = new System.Drawing.Point(152, 99);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 22);
             this.textBox3.TabIndex = 28;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(272, 97);
+            this.textBox4.Location = new System.Drawing.Point(272, 99);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 22);
             this.textBox4.TabIndex = 29;
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // label2
             // 
@@ -255,59 +309,6 @@
             this.textBox6.Size = new System.Drawing.Size(100, 22);
             this.textBox6.TabIndex = 32;
             this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            // 
-            // Marca
-            // 
-            this.Marca.HeaderText = "Marca";
-            this.Marca.Name = "Marca";
-            // 
-            // Capacitate
-            // 
-            this.Capacitate.HeaderText = "Capacitate";
-            this.Capacitate.Name = "Capacitate";
-            // 
-            // Km
-            // 
-            this.Km.HeaderText = "Km";
-            this.Km.Name = "Km";
-            // 
-            // Pret
-            // 
-            this.Pret.HeaderText = "Pret";
-            this.Pret.Name = "Pret";
-            // 
-            // Combustibil
-            // 
-            this.Combustibil.HeaderText = "Combustibil";
-            this.Combustibil.Name = "Combustibil";
-            // 
-            // An
-            // 
-            this.An.HeaderText = "An";
-            this.An.Name = "An";
-            // 
-            // Descriere
-            // 
-            this.Descriere.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Descriere.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Descriere.HeaderText = "Descriere";
-            this.Descriere.Name = "Descriere";
-            this.Descriere.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Descriere.Width = 98;
-            // 
-            // Poza
-            // 
-            this.Poza.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Poza.HeaderText = "CodSasiu";
-            this.Poza.Name = "Poza";
-            this.Poza.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Poza.Width = 97;
             // 
             // Search
             // 

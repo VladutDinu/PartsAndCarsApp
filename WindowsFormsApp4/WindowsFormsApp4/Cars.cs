@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Configuration;
+
 namespace WindowsFormsApp4
 {
     public class CarsInfo
@@ -20,6 +21,7 @@ namespace WindowsFormsApp4
         public string Pret { get; set; }
         public string Km { get; set; }
         public string CodSasiu { get; set; }
+
     }
 
     public class CarsData

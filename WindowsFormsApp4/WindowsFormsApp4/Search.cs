@@ -63,7 +63,7 @@ namespace WindowsFormsApp4
             da.Fill(ds);
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
-                dataGridView1.Rows.Add(ds.Tables[0].Rows[i][0], ds.Tables[0].Rows[i][1], ds.Tables[0].Rows[i][2], ds.Tables[0].Rows[i][3], ds.Tables[0].Rows[i][5], ds.Tables[0].Rows[i][6], ds.Tables[0].Rows[i][4], ds.Tables[0].Rows[i][7], ds.Tables[0].Rows[i][8]);
+                dataGridView1.Rows.Add(ds.Tables[0].Rows[i][0], ds.Tables[0].Rows[i][1], ds.Tables[0].Rows[i][2], ds.Tables[0].Rows[i][3], ds.Tables[0].Rows[i][4], ds.Tables[0].Rows[i][5], ds.Tables[0].Rows[i][6], ds.Tables[0].Rows[i][7], ds.Tables[0].Rows[i][8]);
             }
 
         }
@@ -90,6 +90,39 @@ namespace WindowsFormsApp4
             }
             add();
         }
+        public bool verifyKm(TextBox a, TextBox b)
+        {
+            if (a.Text != "" && b.Text != "")
+                if (Convert.ToInt32(a.Text) > Convert.ToInt32(b.Text))
+                return true;
+            return false;
+        }
+        public bool verifyPret(TextBox a, TextBox b)
+        {
+            if (a.Text != "" && b.Text != "")
+                if (Convert.ToInt32(a.Text) > Convert.ToInt32(b.Text))
+                return true;
+            return false;
+        }
+        public bool verifyAn(TextBox a, TextBox b)
+        {
+            if (a.Text != "" && b.Text != "")
+                if (Convert.ToInt32(a.Text) > Convert.ToInt32(b.Text))
+                return true;
+            return false;
+        }
+        public bool verifyCap(ComboBox a, ComboBox b)
+        {
+            if (Convert.ToDouble(a.SelectedItem) > Convert.ToDouble(b.SelectedItem))
+                return true;
+            return false;
+        }
+        public bool verify()
+        {
+            if (!verifyCap(comboBox4,comboBox2) && !verifyAn(textBox5, textBox6) && !verifyPret(textBox1, textBox2) && !verifyKm(textBox3,textBox4))
+                return true;
+            else return false;
+        }
         private void check()
         {
             query = "Select * from Masini";
@@ -97,18 +130,20 @@ namespace WindowsFormsApp4
                 if(!query.Contains("where"))
                 query += " where Marca ='" + comboBox1.SelectedItem + "'";
             else query += " and Marca ='" + comboBox1.SelectedItem + "'";
+
             if (comboBox2.SelectedIndex != -1 && comboBox4.SelectedIndex != -1)
-                if (!query.Contains("where"))
-                    query += " where Capacitate BETWEEN '" + comboBox4.SelectedItem + "' AND  '" + comboBox2.SelectedItem + "'";
-                else query += " and Capacitate BETWEEN '" + comboBox4.SelectedItem + "' AND '" + comboBox2.SelectedItem + "'";
+                if (!query.Contains("where")) 
+                    query += " where Capacitate BETWEEN '" + Convert.ToDouble(comboBox4.SelectedItem) + "' AND  '" + Convert.ToDouble(comboBox2.SelectedItem) + "'";
+                else query += " and Capacitate BETWEEN '" + Convert.ToDouble(comboBox4.SelectedItem) + "' AND '" + Convert.ToDouble(comboBox2.SelectedItem) + "'";
             else if (comboBox2.SelectedIndex != -1)
                 if (!query.Contains("where"))
-                    query += " where Capacitate <= '" + comboBox2.SelectedItem + "'";
-                else query += " and Capacitate <='" + comboBox2.SelectedItem + "'";
+                    query += " where Capacitate <= '" + Convert.ToDouble(comboBox2.SelectedItem) + "'";
+                else query += " and Capacitate <='" + Convert.ToDouble(comboBox2.SelectedItem) + "'";
             else if (comboBox4.SelectedIndex != -1)
                 if (!query.Contains("where"))
-                    query += " where Capacitate >='" + comboBox4.SelectedItem + "'";
-                else query += " and Capacitate >='" + comboBox4.SelectedItem + "'";
+                    query += " where Capacitate >='" + Convert.ToDouble(comboBox4.SelectedItem) + "'";
+                else query += " and Capacitate >='" + Convert.ToDouble(comboBox4.SelectedItem) + "'";
+
             if (comboBox5.SelectedIndex != -1)
                 if (!query.Contains("where"))
                     query += " where Combustibil = '" + comboBox5.SelectedItem + "'";
@@ -116,42 +151,42 @@ namespace WindowsFormsApp4
 
             if (textBox3.Text != "" && textBox4.Text != "")
                 if (!query.Contains("where"))
-                    query += " where Km BETWEEN '" + textBox3.Text + "' AND  '" + textBox4.Text + "'";
-                else query += " and Km BETWEEN '" + textBox3.Text + "' AND '" + textBox4.Text + "'";
+                    query += " where Km BETWEEN '" + Convert.ToInt32(textBox3.Text) + "' AND  '" + Convert.ToInt32(textBox4.Text) + "'";
+                else query += " and Km BETWEEN '" + Convert.ToInt32(textBox3.Text) + "' AND '" + Convert.ToInt32(textBox4.Text) + "'";
             else if (textBox4.Text != "")
                 if (!query.Contains("where"))
-                    query += " where Km <= '" + textBox4.Text + "'";
-                else query += " and Km <='" +  textBox4.Text + "'";
+                    query += " where Km <= '" + Convert.ToInt32(textBox4.Text) + "'";
+                else query += " and Km <='" + Convert.ToInt32(textBox4.Text) + "'";
             else if (textBox3.Text != "")
                 if (!query.Contains("where"))
-                    query += " where Km >='" + textBox3.Text + "'";
-                else query += " and Km >='" + textBox3.Text + "'";
+                    query += " where Km >='" + Convert.ToInt32(textBox3.Text) + "'";
+                else query += " and Km >='" + Convert.ToInt32(textBox3.Text) + "'";
 
             if (textBox1.Text != "" && textBox2.Text != "")
                 if (!query.Contains("where"))
-                    query += " where Pret BETWEEN '" + textBox1.Text + "' AND  '" + textBox2.Text + "'";
-                else query += " and Pret BETWEEN '" + textBox1.Text + "' AND '" + textBox2.Text + "'";
+                    query += " where Pret BETWEEN '" + Convert.ToInt32(textBox1.Text) + "' AND  '" + Convert.ToInt32(textBox2.Text) + "'";
+                else query += " and Pret BETWEEN '" + Convert.ToInt32(textBox1.Text) + "' AND '" + Convert.ToInt32(textBox2.Text) + "'";
             else if (textBox2.Text != "")
                 if (!query.Contains("where"))
-                    query += " where Pret <= '" + textBox2.Text + "'";
-                else query += " and Pret <='" + textBox2.Text + "'";
+                    query += " where Pret <= '" + Convert.ToInt32(textBox2.Text) + "'";
+                else query += " and Pret <='" + Convert.ToInt32(textBox2.Text) + "'";
             else if (textBox1.Text != "")
                 if (!query.Contains("where"))
-                    query += " where Pret >='" + textBox1.Text + "'";
-                else query += " and Pret >='" + textBox1.Text + "'";
+                    query += " where Pret >='" + Convert.ToInt32(textBox1.Text) + "'";
+                else query += " and Pret >='" + Convert.ToInt32(textBox1.Text) + "'";
 
             if (textBox5.Text != "" && textBox6.Text != "")
                 if (!query.Contains("where"))
-                    query += " where An BETWEEN '" + textBox5.Text + "' AND  '" + textBox6.Text + "'";
-                else query += " and An BETWEEN '" + textBox5.Text + "' AND '" + textBox6.Text + "'";
+                    query += " where An BETWEEN '" + Convert.ToInt32(textBox5.Text) + "' AND  '" + Convert.ToInt32(textBox6.Text) + "'";
+                else query += " and An BETWEEN '" + Convert.ToInt32(textBox5.Text) + "' AND '" + Convert.ToInt32(textBox6.Text) + "'";
             else if (textBox6.Text != "")
                 if (!query.Contains("where"))
-                    query += " where An <= '" + textBox6.Text + "'";
-                else query += " and An <='" + textBox6.Text + "'";
+                    query += " where An <= '" + Convert.ToInt32(textBox6.Text) + "'";
+                else query += " and An <='" + Convert.ToInt32(textBox6.Text) + "'";
             else if (textBox5.Text != "")
                 if (!query.Contains("where"))
-                    query += " where An >='" + textBox5.Text + "'";
-                else query += " and An >='" + textBox5.Text + "'";
+                    query += " where An >='" + Convert.ToInt32(textBox5.Text) + "'";
+                else query += " and An >='" + Convert.ToInt32(textBox5.Text) + "'";
 
         }
         private void search_m()
@@ -170,15 +205,21 @@ namespace WindowsFormsApp4
             da.Fill(ds);
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
-                dataGridView1.Rows.Add(ds.Tables[0].Rows[i][0], ds.Tables[0].Rows[i][1], ds.Tables[0].Rows[i][2], ds.Tables[0].Rows[i][3], ds.Tables[0].Rows[i][5], ds.Tables[0].Rows[i][6], ds.Tables[0].Rows[i][4], ds.Tables[0].Rows[i][7], ds.Tables[0].Rows[i][8]);
+                dataGridView1.Rows.Add(ds.Tables[0].Rows[i][0], ds.Tables[0].Rows[i][1], ds.Tables[0].Rows[i][2], ds.Tables[0].Rows[i][3], ds.Tables[0].Rows[i][4], ds.Tables[0].Rows[i][5], ds.Tables[0].Rows[i][6], ds.Tables[0].Rows[i][7], ds.Tables[0].Rows[i][8]);
             }
 
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = null;
-            dataGridView1.Rows.Clear();
-            search_m();
+            if (verify())
+            {
+                dataGridView1.DataSource = null;
+                dataGridView1.Rows.Clear();
+                search_m();
+            }
+            else
+                MessageBox.Show("Filtre gresite");
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -223,7 +264,7 @@ namespace WindowsFormsApp4
             da.Fill(ds);
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
-                dataGridView1.Rows.Add(ds.Tables[0].Rows[i][0], ds.Tables[0].Rows[i][1], ds.Tables[0].Rows[i][2], ds.Tables[0].Rows[i][3], ds.Tables[0].Rows[i][5], ds.Tables[0].Rows[i][6], ds.Tables[0].Rows[i][4], ds.Tables[0].Rows[i][7], ds.Tables[0].Rows[i][8]);
+                dataGridView1.Rows.Add(ds.Tables[0].Rows[i][0], ds.Tables[0].Rows[i][1], ds.Tables[0].Rows[i][2], ds.Tables[0].Rows[i][3], ds.Tables[0].Rows[i][4], ds.Tables[0].Rows[i][5], ds.Tables[0].Rows[i][6], ds.Tables[0].Rows[i][7], ds.Tables[0].Rows[i][8]);
             }
         }
         private void buy()
@@ -267,6 +308,9 @@ namespace WindowsFormsApp4
         private void label2_Click(object sender, EventArgs e)
         {
             query = "Select * from Masini";
+            dataGridView1.DataSource = null;
+            dataGridView1.Rows.Clear();
+            add();
             comboBox1.SelectedIndex = -1;
             comboBox2.SelectedIndex = -1;
             comboBox4.SelectedIndex = -1;
@@ -281,6 +325,11 @@ namespace WindowsFormsApp4
         }
 
         private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
         {
 
         }
