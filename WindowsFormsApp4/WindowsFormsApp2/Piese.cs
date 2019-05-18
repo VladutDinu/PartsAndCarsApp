@@ -19,20 +19,18 @@ namespace WindowsFormsApp2
         static string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
         string query;
         public List<PartsInfo> cd = new List<PartsInfo>();
-        int count;
-        private void getData()
+         
+        private void getData(string cs)
         {
             SqlCommand cmd;
             SqlConnection con;
             con = new SqlConnection(connectionString);
             con.Open();
-            cmd = new SqlCommand("Select * from Piese", con);
+            cmd = new SqlCommand(cs, con);
             using (SqlDataReader rdr = cmd.ExecuteReader())
             {
-                int i = 0;
                 while (rdr.Read())
                 {
-                    i++;
                     PartsInfo c = new PartsInfo();
                     c.id = Convert.ToInt32(rdr[0]);
                     c.Producator = rdr[1].ToString();
@@ -44,22 +42,20 @@ namespace WindowsFormsApp2
             }
             con.Close();
         }
+        private void sortByNew()
+        {
+            query = "Select * From Masini Order By Id DESC";
+            SqlConnection con = new SqlConnection(connectionString);
+            SqlCommand cmd = new SqlCommand(query, con);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
         private void add()
         {
-            getData();
-            SqlCommand cmd;
-            SqlConnection con;
-            SqlDataAdapter da;
-          
-
             query = "Select * from Piese";
-            con = new SqlConnection(connectionString);
-            cmd = new SqlCommand(query, con);
-            da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            count = ds.Tables[0].Rows.Count;
-            for (int i = 0; i < count; i++)
+            getData(query);
+            for (int i = 0; i < cd.Count(); i++)
             {
                 dataGridView1.Rows.Add(cd[i].id, cd[i].Producator, cd[i].Pret, cd[i].Material, cd[i].Descriere);
             }
@@ -68,36 +64,11 @@ namespace WindowsFormsApp2
         {
             InitializeComponent();
             this.m = fereastraInitiala;
+            sortByNew();
             add();
         }
-
-        private void DisplayData ()
+        private void buy()
         {
-          
-
-            query = "Select * from Piese";
-            dataGridView1.DataSource = null;
-            dataGridView1.Rows.Clear();
-            SqlCommand cmd;
-            SqlConnection con;
-            SqlDataAdapter da;
-
-            con = new SqlConnection(connectionString);
-            cmd = new SqlCommand(query, con);
-            da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            for (int i = 0; i< ds.Tables[0].Rows.Count; i++)
-            {
-                dataGridView1.Rows.Add(ds.Tables[0].Rows[i][0], ds.Tables[0].Rows[i][1], ds.Tables[0].Rows[i][2], ds.Tables[0].Rows[i][3], ds.Tables[0].Rows[i][4]);
-            }
-
-        }
-
-        private void  buy()
-        {
-         
-
             query = "DELETE From Piese where Id=@Id";
             SqlConnection con = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(query, con);
@@ -105,13 +76,16 @@ namespace WindowsFormsApp2
             cmd.Parameters.AddWithValue("@Id", dataGridView1.CurrentRow.Cells[0].Value.ToString());
             cmd.ExecuteNonQuery();
             con.Close();
-            DisplayData();
+            dataGridView1.DataSource = null;
+            dataGridView1.Rows.Clear();
+            cd.RemoveRange(0, cd.Count());
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             buy();
+            add();
         }
 
         private void button1_Click(object sender, EventArgs e)

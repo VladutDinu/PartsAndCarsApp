@@ -61,38 +61,6 @@ namespace WindowsFormsApp4
             }
         }
        
-       /* public List<CarsInfo> ci()
-        {
-            List<CarsInfo> carInfo = new List<CarsInfo>();
-            SqlCommand cmd;
-            SqlConnection con;
-            con = new SqlConnection(_connectionString);
-            con.Open();
-            cmd = new SqlCommand("Select * from Masini", con);
-            using (SqlDataReader rdr = cmd.ExecuteReader())
-            {
-               
-                while (rdr.Read())
-                {
-                    
-                    CarsInfo c = new CarsInfo();
-                    c.id = Convert.ToInt32(rdr[0]);
-                    c.Marca = rdr.GetString(1);
-                    c.Capacitate = rdr.GetString(2);
-                    c.Km = rdr.GetString(3);
-                    c.Pret = rdr.GetString(4);
-                    c.Combustibil = rdr.GetString(5);
-                    c.An = rdr.GetString(6);
-                    c.Descriere = rdr.GetString(7);
-                    c.CodSasiu = rdr.GetString(8);
-                    carInfo.Add(c);
-
-                }
-                con.Close();
-            }
-            return carInfo;
-            
-        }*/
         public CarsInfo setData(Int32 a, string b, string c, string d, string e, string f, string g, string h, string i)
         {
             return new CarsInfo

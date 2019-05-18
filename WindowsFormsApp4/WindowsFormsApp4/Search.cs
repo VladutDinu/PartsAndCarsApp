@@ -18,20 +18,18 @@ namespace WindowsFormsApp4
         static string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
         string query;
         public List<CarsInfo> cd = new List<CarsInfo>();
-        int count;
-        private void getData()
+         
+        private void getData(string cs)
         {
             SqlCommand cmd;
             SqlConnection con;
             con = new SqlConnection(connectionString);
             con.Open();
-            cmd = new SqlCommand("Select * from Masini", con);
+            cmd = new SqlCommand(cs, con);
             using (SqlDataReader rdr = cmd.ExecuteReader())
             {
-                int i = 0;
                 while (rdr.Read())
                 {
-                    i++;
                     CarsInfo c = new CarsInfo();
                     c.id = Convert.ToInt32(rdr[0]);
                     c.Marca = rdr[1].ToString();
@@ -43,35 +41,39 @@ namespace WindowsFormsApp4
                     c.Descriere = rdr[7].ToString();
                     c.CodSasiu = rdr[8].ToString();
                     cd.Add(c);
-
                 }
             }
             con.Close();
         }
-        private void add()
+        private void add(string qrr)
         {
-            getData();
-            SqlCommand cmd;
-            SqlConnection con;
-            SqlDataAdapter da;
-           
-            query = "Select * from Masini";
-            con = new SqlConnection(connectionString);
-            cmd = new SqlCommand(query, con);
-            da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            getData(qrr);
+            for (int i = 0; i < cd.Count(); i++)
             {
-                dataGridView1.Rows.Add(ds.Tables[0].Rows[i][0], ds.Tables[0].Rows[i][1], ds.Tables[0].Rows[i][2], ds.Tables[0].Rows[i][3], ds.Tables[0].Rows[i][4], ds.Tables[0].Rows[i][5], ds.Tables[0].Rows[i][6], ds.Tables[0].Rows[i][7], ds.Tables[0].Rows[i][8]);
+                dataGridView1.Rows.Add(cd[i].id, cd[i].Marca, cd[i].Capacitate, cd[i].Km, cd[i].Pret, cd[i].Combustibil, cd[i].An, cd[i].Descriere, cd[i].CodSasiu);
             }
-
         }
         Form m;
+        public void sortBy(string c)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            SqlCommand cmd = new SqlCommand(c, con);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+            cd.RemoveRange(0, cd.Count());
+            dataGridView1.DataSource = null;
+            dataGridView1.Rows.Clear();
+        }
         public Search(Form fereastraInitiala)
         {   
             InitializeComponent();
             this.m = fereastraInitiala;
+            comboBox1.Items.Add("");
+            comboBox5.Items.Add("");
+            comboBox4.Items.Add("");
+            comboBox2.Items.Add("");
+
             string[] lines = System.IO.File.ReadAllLines(System.AppDomain.CurrentDomain.BaseDirectory + "marca.txt");
             foreach (string line in lines)
             {
@@ -88,7 +90,12 @@ namespace WindowsFormsApp4
             {
                 comboBox5.Items.Add(line);
             }
-            add();
+            
+            add("Select * From Masini Order By Id DESC");
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox5.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox4.DropDownStyle = ComboBoxStyle.DropDownList;
         }
         public bool verifyKm(TextBox a, TextBox b)
         {
@@ -112,9 +119,9 @@ namespace WindowsFormsApp4
             return false;
         }
         public bool verifyCap(ComboBox a, ComboBox b)
-        {
-            if (Convert.ToDouble(a.SelectedItem) > Convert.ToDouble(b.SelectedItem))
-                return true;
+        {   if(a.Text!="" && b.Text!="")
+                if (Convert.ToDouble(a.SelectedItem) > Convert.ToDouble(b.SelectedItem))
+                 return true;
             return false;
         }
         public bool verify()
@@ -123,28 +130,29 @@ namespace WindowsFormsApp4
                 return true;
             else return false;
         }
-        private void check()
+        
+        private string check()
         {
             query = "Select * from Masini";
-            if (comboBox1.SelectedIndex != -1 )
+            if (comboBox1.SelectedIndex  > 0 )
                 if(!query.Contains("where"))
                 query += " where Marca ='" + comboBox1.SelectedItem + "'";
             else query += " and Marca ='" + comboBox1.SelectedItem + "'";
 
-            if (comboBox2.SelectedIndex != -1 && comboBox4.SelectedIndex != -1)
+            if (comboBox2.SelectedIndex  > 0 && comboBox4.SelectedIndex  > 0)
                 if (!query.Contains("where")) 
                     query += " where Capacitate BETWEEN '" + Convert.ToDouble(comboBox4.SelectedItem) + "' AND  '" + Convert.ToDouble(comboBox2.SelectedItem) + "'";
                 else query += " and Capacitate BETWEEN '" + Convert.ToDouble(comboBox4.SelectedItem) + "' AND '" + Convert.ToDouble(comboBox2.SelectedItem) + "'";
-            else if (comboBox2.SelectedIndex != -1)
+            else if (comboBox2.SelectedIndex  > 0)
                 if (!query.Contains("where"))
                     query += " where Capacitate <= '" + Convert.ToDouble(comboBox2.SelectedItem) + "'";
                 else query += " and Capacitate <='" + Convert.ToDouble(comboBox2.SelectedItem) + "'";
-            else if (comboBox4.SelectedIndex != -1)
+            else if (comboBox4.SelectedIndex > 0)
                 if (!query.Contains("where"))
                     query += " where Capacitate >='" + Convert.ToDouble(comboBox4.SelectedItem) + "'";
                 else query += " and Capacitate >='" + Convert.ToDouble(comboBox4.SelectedItem) + "'";
 
-            if (comboBox5.SelectedIndex != -1)
+            if (comboBox5.SelectedIndex  > 0)
                 if (!query.Contains("where"))
                     query += " where Combustibil = '" + comboBox5.SelectedItem + "'";
             else query += " and Combustibil = '" + comboBox5.SelectedItem + "'";
@@ -187,25 +195,15 @@ namespace WindowsFormsApp4
                 if (!query.Contains("where"))
                     query += " where An >='" + Convert.ToInt32(textBox5.Text) + "'";
                 else query += " and An >='" + Convert.ToInt32(textBox5.Text) + "'";
+            return query;
 
         }
         private void search_m()
         {
-            query = "Select * from Masini";
-            
-            check();
-            
-            SqlCommand cmd;
-            SqlConnection con;
-            SqlDataAdapter da;
-            con = new SqlConnection(connectionString);
-            cmd = new SqlCommand(query, con);
-            da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            getData(check());
+            for (int i = 0; i < cd.Count(); i++)
             {
-                dataGridView1.Rows.Add(ds.Tables[0].Rows[i][0], ds.Tables[0].Rows[i][1], ds.Tables[0].Rows[i][2], ds.Tables[0].Rows[i][3], ds.Tables[0].Rows[i][4], ds.Tables[0].Rows[i][5], ds.Tables[0].Rows[i][6], ds.Tables[0].Rows[i][7], ds.Tables[0].Rows[i][8]);
+                dataGridView1.Rows.Add(cd[i].id, cd[i].Marca, cd[i].Capacitate, cd[i].Km, cd[i].Pret, cd[i].Combustibil, cd[i].An, cd[i].Descriere, cd[i].CodSasiu);
             }
 
         }
@@ -213,6 +211,7 @@ namespace WindowsFormsApp4
         {
             if (verify())
             {
+                cd.RemoveRange(0, cd.Count());
                 dataGridView1.DataSource = null;
                 dataGridView1.Rows.Clear();
                 search_m();
@@ -247,29 +246,9 @@ namespace WindowsFormsApp4
         {
 
         }
-        private void DisplayData()
-        {
-           
-            query = "Select * from Masini where Marca='" + comboBox1.SelectedItem + "' and Capacitate='" + comboBox2.SelectedItem + "'";
-            dataGridView1.DataSource = null;
-            dataGridView1.Rows.Clear();
-            SqlCommand cmd;
-            SqlConnection con;
-            SqlDataAdapter da;
-
-            con = new SqlConnection(connectionString);
-            cmd = new SqlCommand(query, con);
-            da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-            {
-                dataGridView1.Rows.Add(ds.Tables[0].Rows[i][0], ds.Tables[0].Rows[i][1], ds.Tables[0].Rows[i][2], ds.Tables[0].Rows[i][3], ds.Tables[0].Rows[i][4], ds.Tables[0].Rows[i][5], ds.Tables[0].Rows[i][6], ds.Tables[0].Rows[i][7], ds.Tables[0].Rows[i][8]);
-            }
-        }
+    
         private void buy()
         {
-   
             query = "DELETE From Masini where Id=@Id";
             SqlConnection con = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(query, con);
@@ -277,12 +256,15 @@ namespace WindowsFormsApp4
             cmd.Parameters.AddWithValue("@id", dataGridView1.CurrentRow.Cells[0].Value.ToString());
             cmd.ExecuteNonQuery();
             con.Close();
-            DisplayData();
+            dataGridView1.DataSource = null;
+            dataGridView1.Rows.Clear();
+            cd.RemoveRange(0, cd.Count());
+
         }
         private void button3_Click(object sender, EventArgs e)
         {
             buy();
-            add();
+            add(query);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -308,9 +290,10 @@ namespace WindowsFormsApp4
         private void label2_Click(object sender, EventArgs e)
         {
             query = "Select * from Masini";
+            cd.RemoveRange(0, cd.Count());
             dataGridView1.DataSource = null;
             dataGridView1.Rows.Clear();
-            add();
+            add(query);
             comboBox1.SelectedIndex = -1;
             comboBox2.SelectedIndex = -1;
             comboBox4.SelectedIndex = -1;
@@ -330,6 +313,76 @@ namespace WindowsFormsApp4
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (!char.IsDigit(ch) && ch != 8 && ch != 46)
+                e.Handled = true;
+        }
+
+        private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (!char.IsDigit(ch) && ch != 8 && ch != 46)
+                e.Handled = true;
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (!char.IsDigit(ch) && ch != 8 && ch != 46)
+                e.Handled = true;
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (!char.IsDigit(ch) && ch != 8 && ch != 46)
+                e.Handled = true;
+        }
+
+        private void textBox5_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (!char.IsDigit(ch) && ch != 8 && ch != 46)
+                e.Handled = true;
+        }
+
+        private void textBox6_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (!char.IsDigit(ch) && ch != 8 && ch != 46)
+                e.Handled = true;
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+            sortBy("Select * From Masini Order By Id DESC");
+            add("Select * From Masini Order By Id DESC");
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+            sortBy("Select * From Masini Order By Pret ASC");
+            add("Select * From Masini Order By Pret ASC");
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            sortBy("Select * From Masini Order By Pret DESC");
+            add("Select * From Masini Order By Pret DESC");
+        }
+
+        private void label10_Click(object sender, EventArgs e)
         {
 
         }

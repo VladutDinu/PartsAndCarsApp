@@ -18,20 +18,18 @@ namespace WindowsFormsApp2
         static string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
         string query;
         public List<PartsInfo> cd = new List<PartsInfo>();
-        int count;
-        private void getData()
+         
+        private void getData(string cs)
         {
             SqlCommand cmd;
             SqlConnection con;
             con = new SqlConnection(connectionString);
             con.Open();
-            cmd = new SqlCommand("Select * from Piese", con);
+            cmd = new SqlCommand(cs, con);
             using (SqlDataReader rdr = cmd.ExecuteReader())
             {
-                int i = 0;
                 while (rdr.Read())
                 {
-                    i++;
                     PartsInfo c = new PartsInfo();
                     c.id = Convert.ToInt32(rdr[0]);
                     c.Producator = rdr[1].ToString();
@@ -45,31 +43,30 @@ namespace WindowsFormsApp2
         }
         private void add()
         {
-            getData();
-            SqlCommand cmd;
-            SqlConnection con;
-            SqlDataAdapter da;
-
-
             query = "Select * from Piese";
-            con = new SqlConnection(connectionString);
-            cmd = new SqlCommand(query, con);
-            da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            count = ds.Tables[0].Rows.Count;
-            for (int i = 0; i < count; i++)
+            getData(query);
+            for (int i = 0; i < cd.Count(); i++)
             {
                 dataGridView1.Rows.Add(cd[i].id, cd[i].Producator, cd[i].Material, cd[i].Pret, cd[i].Descriere);
             }
         }
         Form m;
 
-
+        private void sortByNew()
+        {
+            query = "Select * From Piese Order By Id DESC";
+            SqlConnection con = new SqlConnection(connectionString);
+            SqlCommand cmd = new SqlCommand(query, con);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
         public SearchPiese(Form fereastraInitiala)
         {
             InitializeComponent();
             this.m = fereastraInitiala;
+            comboBox1.Items.Add("");
+            comboBox2.Items.Add("");
             string[] lines = System.IO.File.ReadAllLines(System.AppDomain.CurrentDomain.BaseDirectory + "producator.txt");
             foreach (string cuvant in lines )
             {
@@ -94,6 +91,7 @@ namespace WindowsFormsApp2
             }
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+            sortByNew();
             add();
         }
         public bool verify(TextBox a,TextBox b)
@@ -102,14 +100,14 @@ namespace WindowsFormsApp2
                  return true;
             return false;
         }
-        private void check()
+        private string check()
         {
             query = "Select * from Piese ";
-            if (comboBox1.SelectedIndex != -1)
+            if (comboBox1.SelectedIndex >0 )
                 if (!query.Contains("where"))
                     query += " where Producator ='" + comboBox1.SelectedItem + "'";
                 else query += " and Producator ='" + comboBox1.SelectedItem + "'";
-            if (comboBox2.SelectedIndex != -1)
+            if (comboBox2.SelectedIndex >0 )
                 if (!query.Contains("where"))
                     query += " where Material ='" + comboBox2.SelectedItem + "'";
                 else query += " and Material ='" + comboBox2.SelectedItem + "'";
@@ -127,28 +125,16 @@ namespace WindowsFormsApp2
                 if (!query.Contains("where"))
                     query += " where Pret >='" + Convert.ToInt32(textBox3.Text) + "'";
                 else query += " and Pret >='" + Convert.ToInt32(textBox3.Text) + "'";
+            return query;
         }
 
         private void search_m()
         {
-            query = "Select * from Piese ";
-            check();
-
-            SqlCommand cmd;
-            SqlConnection con;
-            SqlDataAdapter da;
-            con = new SqlConnection(connectionString);
-            cmd = new SqlCommand(query, con);
-            da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-           
-
-                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            getData(check());
+            for (int i = 0; i < cd.Count(); i++)
                 {
-                    dataGridView1.Rows.Add(ds.Tables[0].Rows[i][0], ds.Tables[0].Rows[i][1], ds.Tables[0].Rows[i][3], ds.Tables[0].Rows[i][2], ds.Tables[0].Rows[i][4]);
-                }
-            
+                dataGridView1.Rows.Add(cd[i].id, cd[i].Producator, cd[i].Material, cd[i].Pret, cd[i].Descriere);
+            }
 
         }
 
@@ -162,6 +148,7 @@ namespace WindowsFormsApp2
             //cautare
             if (!verify(textBox3, textBox4))
             {
+                cd.RemoveRange(0, cd.Count());
                 dataGridView1.DataSource = null;
                 dataGridView1.Rows.Clear();
                 search_m();
@@ -176,28 +163,6 @@ namespace WindowsFormsApp2
             this.Close();
             m.Show();
         }
-
-        private void DisplayData()
-        {
-
-            query = "Select * from Piese where Producator='" + comboBox1.SelectedItem + "' and Material='" + comboBox2.SelectedItem + "'";
-            dataGridView1.DataSource = null;
-            dataGridView1.Rows.Clear();
-            SqlCommand cmd;
-            SqlConnection con;
-            SqlDataAdapter da;
-
-            con = new SqlConnection(connectionString);
-            cmd = new SqlCommand(query, con);
-            da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-            {
-               dataGridView1.Rows.Add(ds.Tables[0].Rows[i][0], ds.Tables[0].Rows[i][1], ds.Tables[0].Rows[i][2], ds.Tables[0].Rows[i][3], ds.Tables[0].Rows[i][4]);
-            }
-        }
-
         private void buy()
         {
 
@@ -208,7 +173,9 @@ namespace WindowsFormsApp2
             cmd.Parameters.AddWithValue("@id", dataGridView1.CurrentRow.Cells[0].Value.ToString());
             cmd.ExecuteNonQuery();
             con.Close();
-            DisplayData();
+            dataGridView1.DataSource = null;
+            dataGridView1.Rows.Clear();
+            cd.RemoveRange(0, cd.Count());
         }
         private void button3_Click(object sender, EventArgs e)
         {
@@ -221,6 +188,10 @@ namespace WindowsFormsApp2
         {
             //Reset filtre
             query = "Select * from Piese";
+            cd.RemoveRange(0, cd.Count());
+            dataGridView1.DataSource = null;
+            dataGridView1.Rows.Clear();
+            add();
             comboBox1.SelectedIndex = -1;
             comboBox2.SelectedIndex = -1;
             textBox3.Text = "";
@@ -271,6 +242,20 @@ namespace WindowsFormsApp2
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (!char.IsDigit(ch) && ch != 8 && ch != 46)
+                e.Handled = true;
+        }
+
+        private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (!char.IsDigit(ch) && ch != 8 && ch != 46)
+                e.Handled = true;
         }
     }
 }

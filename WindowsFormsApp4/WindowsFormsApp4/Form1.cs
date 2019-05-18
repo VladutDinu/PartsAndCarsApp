@@ -27,7 +27,7 @@ namespace WindowsFormsApp4
 
         private void Form1_Load(object sender, EventArgs e)
         {
-       
+            this.FocusMe();
         }
      
         private bool verif()
@@ -54,21 +54,22 @@ namespace WindowsFormsApp4
         }
         private void login()
         {
-            if (verif()&&!verif_admin())
+            if (verif() && !verif_admin())
             {
                 this.Hide();
                 Main ss = new Main();
                 ss.Show();
 
             }
-            else if(verif()&&verif_admin())
+            else if (verif() && verif_admin())
             {
                 this.Hide();
                 MainAdmin ss = new MainAdmin();
                 ss.Show();
-                    
-            }
 
+            }
+            else MessageBox.Show("Nume/Parola gresita.");
+            
         }
         private bool check()
         {
@@ -81,7 +82,7 @@ namespace WindowsFormsApp4
             if (verif())
             {
                 login();
-                MessageBox.Show("Deja inregistrat");
+                MessageBox.Show("Deja inregistrat.");
             }
             else
             {
@@ -91,7 +92,7 @@ namespace WindowsFormsApp4
                 cmd.Parameters.AddWithValue("@username", textBox1.Text);
                 cmd.Parameters.AddWithValue("@password", textBox2.Text);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Inregistrat");
+                MessageBox.Show("Inregistrat.");
                 sqc.Close();
                 login();
             }
@@ -101,13 +102,13 @@ namespace WindowsFormsApp4
         {   if (check())
                 login();
             
-            else MessageBox.Show("Nume/Parola invalida");
+            else MessageBox.Show("Nume/Parola invalida.");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {   if (check())
                 register_login();
-            else MessageBox.Show("Nume/Parola invalida");
+            else MessageBox.Show("Nume/Parola invalida.");
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -125,6 +126,29 @@ namespace WindowsFormsApp4
 
         }
 
-       
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (check())
+                    login();
+                else MessageBox.Show("Nume/Parola invalida.");
+            }
+        }
+
+        private void Enter(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (check())
+                    login();
+                else MessageBox.Show("Nume/Parola invalida.");
+            }
+        }
     }
 }

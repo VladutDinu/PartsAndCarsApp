@@ -20,20 +20,18 @@ namespace WindowsFormsApp4
         Form m;
         
         public List<CarsInfo> cd = new List<CarsInfo>();
-        int count;
-        private void getData()
+         
+        private void getData(string cs)
         {
             SqlCommand cmd;
             SqlConnection con;
             con = new SqlConnection(connectionString);
             con.Open();
-            cmd = new SqlCommand("Select * from Masini", con);
+            cmd = new SqlCommand(cs, con);
             using (SqlDataReader rdr = cmd.ExecuteReader())
             {
-                int i = 0;
                 while (rdr.Read())
                 {
-                    i++;
                     CarsInfo c = new CarsInfo();
                     c.id = Convert.ToInt32(rdr[0]);
                     c.Marca = rdr[1].ToString();
@@ -45,36 +43,27 @@ namespace WindowsFormsApp4
                     c.Descriere = rdr[7].ToString();
                     c.CodSasiu = rdr[8].ToString();
                     cd.Add(c);
-                  
                 }
             }
             con.Close();
         }
-        private void add()
+        private void add(string cs)
         {
-            getData();
-            SqlCommand cmd;
-            SqlConnection con;
-            SqlDataAdapter da;
-           
-            query = "Select * from Masini";
-            con = new SqlConnection(connectionString);
-            cmd = new SqlCommand(query, con);
-            da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            count = ds.Tables[0].Rows.Count;
-            for(int i=0;i<count;i++)
+            
+            getData(cs);
+            for (int i = 0; i < cd.Count(); i++)
             {
                 dataGridView1.Rows.Add(cd[i].id, cd[i].Marca, cd[i].Capacitate, cd[i].Km, cd[i].Pret, cd[i].Combustibil, cd[i].An, cd[i].Descriere, cd[i].CodSasiu);
             }
+
         }
-     
+
         public Masini(Form fereastraInitiala)
         {
             InitializeComponent();
             this.m = fereastraInitiala;
-            add();
+            sortByNew();
+            add("Select * from Masini");
             
         }
         private void button1_Click(object sender, EventArgs e)
@@ -82,28 +71,17 @@ namespace WindowsFormsApp4
             this.Hide();
             m.Show();
         }
-        private void DisplayData()
+        private void sortByNew()
         {
-            query = "Select * from Masini";
-            dataGridView1.DataSource = null;
-            dataGridView1.Rows.Clear();
-            SqlCommand cmd;
-            SqlConnection con;
-            SqlDataAdapter da;
-
-            con = new SqlConnection(connectionString);
-            cmd = new SqlCommand(query, con);
-            da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-            {
-                dataGridView1.Rows.Add(ds.Tables[0].Rows[i][0], ds.Tables[0].Rows[i][1], ds.Tables[0].Rows[i][2], ds.Tables[0].Rows[i][3], ds.Tables[0].Rows[i][5], ds.Tables[0].Rows[i][6], ds.Tables[0].Rows[i][4], ds.Tables[0].Rows[i][7], ds.Tables[0].Rows[i][8]);
-            }
+            query = "Select * From Masini Order By Id DESC";
+            SqlConnection con = new SqlConnection(connectionString);
+            SqlCommand cmd = new SqlCommand(query, con);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
         private void buy()
         {
-           
             query = "DELETE From Masini where Id=@Id";
             SqlConnection con = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(query, con);
@@ -111,7 +89,9 @@ namespace WindowsFormsApp4
             cmd.Parameters.AddWithValue("@Id", dataGridView1.CurrentRow.Cells[0].Value.ToString());
             cmd.ExecuteNonQuery();
             con.Close();
-            DisplayData();
+            dataGridView1.DataSource = null;
+            dataGridView1.Rows.Clear();
+            cd.RemoveRange(0, cd.Count());
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -121,11 +101,40 @@ namespace WindowsFormsApp4
         private void button2_Click(object sender, EventArgs e)
         {
             buy();
+            add(query);
         }
-
+        public void sortBy(string c)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            SqlCommand cmd = new SqlCommand(c, con);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+            cd.RemoveRange(0, cd.Count());
+            dataGridView1.DataSource = null;
+            dataGridView1.Rows.Clear();
+        }
         private void Masini_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            sortBy("Select * From Masini Order By Pret ASC");
+            add("Select * From Masini Order By Pret ASC");
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            sortBy("Select * From Masini Order By Id DESC");
+            add("Select * From Masini Order By Id DESC");
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            sortBy("Select * From Masini Order By Pret DESC");
+            add("Select * From Masini Order By Pret DESC");
         }
     }
 }
