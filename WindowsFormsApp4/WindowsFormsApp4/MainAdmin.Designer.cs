@@ -72,29 +72,29 @@
             // searchToolStripMenuItem
             // 
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
-            this.searchToolStripMenuItem.Text = "Search";
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(119, 24);
+            this.searchToolStripMenuItem.Text = "Cautare masini";
             this.searchToolStripMenuItem.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
             // 
             // adaugaMasinaToolStripMenuItem
             // 
             this.adaugaMasinaToolStripMenuItem.Name = "adaugaMasinaToolStripMenuItem";
-            this.adaugaMasinaToolStripMenuItem.Size = new System.Drawing.Size(124, 24);
-            this.adaugaMasinaToolStripMenuItem.Text = "Adauga Masina";
+            this.adaugaMasinaToolStripMenuItem.Size = new System.Drawing.Size(111, 24);
+            this.adaugaMasinaToolStripMenuItem.Text = "Cautare piese";
             this.adaugaMasinaToolStripMenuItem.Click += new System.EventHandler(this.adaugaMasinaToolStripMenuItem_Click);
             // 
             // adaugaPiesaToolStripMenuItem
             // 
             this.adaugaPiesaToolStripMenuItem.Name = "adaugaPiesaToolStripMenuItem";
-            this.adaugaPiesaToolStripMenuItem.Size = new System.Drawing.Size(111, 24);
-            this.adaugaPiesaToolStripMenuItem.Text = "Adauga Piesa";
+            this.adaugaPiesaToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
+            this.adaugaPiesaToolStripMenuItem.Text = "Adauga piesa";
             this.adaugaPiesaToolStripMenuItem.Click += new System.EventHandler(this.adaugaPiesaToolStripMenuItem_Click);
             // 
             // searchPiesaToolStripMenuItem
             // 
             this.searchPiesaToolStripMenuItem.Name = "searchPiesaToolStripMenuItem";
-            this.searchPiesaToolStripMenuItem.Size = new System.Drawing.Size(99, 24);
-            this.searchPiesaToolStripMenuItem.Text = "SearchPiesa";
+            this.searchPiesaToolStripMenuItem.Size = new System.Drawing.Size(124, 24);
+            this.searchPiesaToolStripMenuItem.Text = "Adauga masina";
             this.searchPiesaToolStripMenuItem.Click += new System.EventHandler(this.searchPiesaToolStripMenuItem_Click);
             // 
             // MainAdmin

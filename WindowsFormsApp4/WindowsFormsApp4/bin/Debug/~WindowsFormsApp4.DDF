@@ -1,0 +1,34 @@
+;Auto-generated Diamond Directive File. Can be deleted without harm.
+.Set CabinetNameTemplate=C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp4\bin\Debug\~WindowsFormsApp4.CAB
+.Set CompressionType=LZX
+.Set CompressionLevel=7
+.Set InfFileName=C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp4\bin\Debug\~WindowsFormsApp4_LAYOUT.INF
+.Set RptFileName=C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp4\bin\Debug\~WindowsFormsApp4.RPT
+.Set MaxDiskSize=CDROM
+.Set ReservePerCabinetSize=0
+.Set InfCabinetLineFormat=*cab#*=Application Source Media,*cabfile*,0
+.Set Compress=on
+.Set CompressionMemory=21
+.Set DiskDirectoryTemplate=
+.Set Cabinet=ON
+.Set MaxCabinetSize=999999999
+.Set InfDiskHeader=
+.Set InfDiskLineFormat=
+.Set InfCabinetHeader=[SourceDisksNames]
+.Set InfFileHeader=
+.Set InfFileHeader1=[SourceDisksFiles]
+.Set InfFileLineFormat=*file*=*cab#*,,*size*,*csum*
+"C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp4\bin\Debug\capacitate.txt"
+"C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp4\bin\Debug\combustibil.txt"
+"C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp4\bin\Debug\marca.txt"
+"C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp4\bin\Debug\material.txt"
+"C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp4\bin\Debug\MetroFramework.Design.dll"
+"C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp4\bin\Debug\MetroFramework.dll"
+"C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp4\bin\Debug\MetroFramework.Fonts.dll"
+"C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp4\bin\Debug\producator.txt"
+"C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp4\bin\Debug\WindowsFormsApp2.exe"
+"C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp4\bin\Debug\WindowsFormsApp2.exe.config"
+"C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp4\bin\Debug\WindowsFormsApp2.pdb"
+"C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp4\bin\Debug\WindowsFormsApp4.exe"
+"C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp4\bin\Debug\WindowsFormsApp4.exe.config"
+"C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp4\bin\Debug\WindowsFormsApp4.pdb"

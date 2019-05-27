@@ -67,15 +67,15 @@
             // searchToolStripMenuItem
             // 
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
-            this.searchToolStripMenuItem.Text = "Search";
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(119, 24);
+            this.searchToolStripMenuItem.Text = "Cautare masini";
             this.searchToolStripMenuItem.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
             // 
             // searchPieseToolStripMenuItem
             // 
             this.searchPieseToolStripMenuItem.Name = "searchPieseToolStripMenuItem";
-            this.searchPieseToolStripMenuItem.Size = new System.Drawing.Size(99, 24);
-            this.searchPieseToolStripMenuItem.Text = "SearchPiese";
+            this.searchPieseToolStripMenuItem.Size = new System.Drawing.Size(111, 24);
+            this.searchPieseToolStripMenuItem.Text = "Cautare piese";
             this.searchPieseToolStripMenuItem.Click += new System.EventHandler(this.searchPieseToolStripMenuItem_Click);
             // 
             // Main

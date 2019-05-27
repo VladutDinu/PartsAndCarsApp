@@ -60,10 +60,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -199,11 +195,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(158, 79);
+            this.label3.Location = new System.Drawing.Point(149, 79);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(170, 17);
+            this.label3.Size = new System.Drawing.Size(178, 17);
             this.label3.TabIndex = 16;
-            this.label3.Text = "Km de la               pana la";
+            this.label3.Text = "Km de la                 pana la";
             this.label3.Click += new System.EventHandler(this.label3_Click_1);
             // 
             // label5
@@ -278,9 +274,9 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(152, 99);
+            this.textBox3.Location = new System.Drawing.Point(145, 99);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
+            this.textBox3.Size = new System.Drawing.Size(121, 22);
             this.textBox3.TabIndex = 28;
             this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
             // 
@@ -288,7 +284,7 @@
             // 
             this.textBox4.Location = new System.Drawing.Point(272, 99);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 22);
+            this.textBox4.Size = new System.Drawing.Size(121, 22);
             this.textBox4.TabIndex = 29;
             this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             this.textBox4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox4_KeyPress);
@@ -321,60 +317,11 @@
             this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             this.textBox6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox6_KeyPress);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label4.Location = new System.Drawing.Point(107, 183);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 17);
-            this.label4.TabIndex = 33;
-            this.label4.Text = "Scump";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label9.Location = new System.Drawing.Point(63, 183);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(38, 17);
-            this.label9.TabIndex = 34;
-            this.label9.Text = "Ieftin";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label10.Location = new System.Drawing.Point(23, 152);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(142, 18);
-            this.label10.TabIndex = 35;
-            this.label10.Text = "Ordoneaza dupa: ";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label11.Location = new System.Drawing.Point(23, 183);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(34, 17);
-            this.label11.TabIndex = 36;
-            this.label11.Text = "Nou";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
-            // 
             // Search
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(971, 498);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label2);
@@ -437,9 +384,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn An;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descriere;
         private System.Windows.Forms.DataGridViewTextBoxColumn Poza;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
     }
 }

@@ -11,10 +11,12 @@ using System.Data.SqlClient;
 using System.Collections.Specialized;
 using System.Configuration;
 
+
 namespace WindowsFormsApp4
 {
     public partial class Masini : MetroFramework.Forms.MetroForm
     {
+
         static string connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
         string query;
         Form m;
@@ -119,22 +121,5 @@ namespace WindowsFormsApp4
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-            sortBy("Select * From Masini Order By Pret ASC");
-            add("Select * From Masini Order By Pret ASC");
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            sortBy("Select * From Masini Order By Id DESC");
-            add("Select * From Masini Order By Id DESC");
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-            sortBy("Select * From Masini Order By Pret DESC");
-            add("Select * From Masini Order By Pret DESC");
-        }
     }
 }

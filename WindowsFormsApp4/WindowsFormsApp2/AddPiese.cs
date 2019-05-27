@@ -29,19 +29,30 @@ namespace WindowsFormsApp2
         {
 
         }
-
+        private bool verifT(TextBox a)
+        {
+            if (a.Text == "")
+                return false;
+            return true;
+        }
         private void button2_Click(object sender, EventArgs e)
         {
-            SqlConnection sqc = new SqlConnection(connectionString);
-            sqc.Open();
-            SqlCommand cmd = new SqlCommand("insert into Piese (Producator , Pret , Material , Descriere) VALUES (@Producator , @Pret , @Material , @Descriere)", sqc);
-            cmd.Parameters.AddWithValue("@Producator", textBox1.Text);
-            cmd.Parameters.AddWithValue("@Pret", textBox2.Text);
-            cmd.Parameters.AddWithValue("@Material", textBox3.Text);
-            cmd.Parameters.AddWithValue("@Descriere", textBox4.Text);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Inregistrat!");
-            sqc.Close();
+            if (!verifT(textBox1) || !verifT(textBox2) || !verifT(textBox3))
+                MessageBox.Show("Campuri necompletate.");
+            else
+            {
+                SqlConnection sqc = new SqlConnection(connectionString);
+                sqc.Open();
+                SqlCommand cmd = new SqlCommand("insert into Piese (Producator , Pret , Material , Descriere) VALUES (@Producator , @Pret , @Material , @Descriere)", sqc);
+                cmd.Parameters.AddWithValue("@Producator", textBox1.Text);
+                cmd.Parameters.AddWithValue("@Pret", textBox2.Text);
+                cmd.Parameters.AddWithValue("@Material", textBox3.Text);
+                cmd.Parameters.AddWithValue("@Descriere", textBox4.Text);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Inregistrat!");
+                sqc.Close();
+                textBox1.Text = textBox2.Text = textBox3.Text = textBox4.Text = "";
+            }
         }
 
        

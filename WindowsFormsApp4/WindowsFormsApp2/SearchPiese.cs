@@ -41,9 +41,8 @@ namespace WindowsFormsApp2
             }
             con.Close();
         }
-        private void add()
+        private void add(string cs)
         {
-            query = "Select * from Piese";
             getData(query);
             for (int i = 0; i < cd.Count(); i++)
             {
@@ -92,7 +91,7 @@ namespace WindowsFormsApp2
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
             sortByNew();
-            add();
+            add("Select * from Piese");
         }
         public bool verify(TextBox a,TextBox b)
         {   if(a.Text!="" && b.Text!="")
@@ -181,7 +180,7 @@ namespace WindowsFormsApp2
         {
             //cumpara
             buy();
-            add();
+            add("Select * from Piese");
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -191,7 +190,7 @@ namespace WindowsFormsApp2
             cd.RemoveRange(0, cd.Count());
             dataGridView1.DataSource = null;
             dataGridView1.Rows.Clear();
-            add();
+            add("Select * from Piese");
             comboBox1.SelectedIndex = -1;
             comboBox2.SelectedIndex = -1;
             textBox3.Text = "";
@@ -257,5 +256,17 @@ namespace WindowsFormsApp2
             if (!char.IsDigit(ch) && ch != 8 && ch != 46)
                 e.Handled = true;
         }
+        public void sortBy(string c)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            SqlCommand cmd = new SqlCommand(c, con);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+            cd.RemoveRange(0, cd.Count());
+            dataGridView1.DataSource = null;
+            dataGridView1.Rows.Clear();
+        }
+       
     }
 }

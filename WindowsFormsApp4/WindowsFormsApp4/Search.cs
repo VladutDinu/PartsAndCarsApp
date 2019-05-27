@@ -363,30 +363,5 @@ namespace WindowsFormsApp4
             if (!char.IsDigit(ch) && ch != 8 && ch != 46)
                 e.Handled = true;
         }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-            sortBy("Select * From Masini Order By Id DESC");
-            add("Select * From Masini Order By Id DESC");
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-            sortBy("Select * From Masini Order By Pret ASC");
-            add("Select * From Masini Order By Pret ASC");
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-            sortBy("Select * From Masini Order By Pret DESC");
-            add("Select * From Masini Order By Pret DESC");
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
     }
-
-  
 }

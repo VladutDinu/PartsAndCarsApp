@@ -36,8 +36,9 @@ namespace WindowsFormsApp4
 
         private void adaugaMasinaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddCar a = new AddCar();
-            a.Show();
+            this.Hide();
+            WindowsFormsApp2.SearchPiese s = new WindowsFormsApp2.SearchPiese(this);
+            s.Show();
         }
 
         private void masiniToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -68,9 +69,8 @@ namespace WindowsFormsApp4
 
         private void searchPiesaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            WindowsFormsApp2.SearchPiese s = new WindowsFormsApp2.SearchPiese(this);
-            s.Show();
+            AddCar a = new AddCar();
+            a.Show();
         }
     }
 }

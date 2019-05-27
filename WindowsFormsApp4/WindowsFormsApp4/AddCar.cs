@@ -37,35 +37,45 @@ namespace WindowsFormsApp4
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+           
         }
-
+        private bool verifT(TextBox a)
+        {
+            if (a.Text == "")
+                return false;
+            return true;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
-            SqlConnection sqc = new SqlConnection(connectionString);
-            sqc.Open();
-            SqlCommand cmd = new SqlCommand("Insert into Masini (Marca, Capacitate, An, Km, Combustibil, Pret, Descriere, CodSasiu) VALUES  (@Marca, @Capacitate, @An, @Km, @Combustibil, @Pret, @Descriere, @CodSasiu)", sqc);
-            cmd.Parameters.AddWithValue("@Marca", textBox1.Text);
-            cmd.Parameters.AddWithValue("@Capacitate", textBox2.Text);
-            cmd.Parameters.AddWithValue("@An", textBox5.Text);
-            cmd.Parameters.AddWithValue("@Km", textBox4.Text);
-            cmd.Parameters.AddWithValue("@Combustibil", textBox3.Text);
-            cmd.Parameters.AddWithValue("@Pret", textBox6.Text);
-            cmd.Parameters.AddWithValue("@Descriere", textBox7.Text);
-            cmd.Parameters.AddWithValue("@CodSasiu", textBox8.Text);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Inregistrat");
-            sqc.Close();
-            textBox1.Text = "";
-            textBox2.Text = "";
-            textBox3.Text = "";
-            textBox4.Text = "";
-            textBox5.Text = "";
-            textBox6.Text = "";
-            textBox7.Text = "";
-            textBox8.Text = "";
+        
+            if(!verifT(textBox8) || !verifT(textBox6) || !verifT(textBox5) || !verifT(textBox4) || !verifT(textBox2) || !verifT(textBox1))
+                MessageBox.Show("Campuri necompletate.");
+            else
+            {
+                SqlConnection sqc = new SqlConnection(connectionString);
+                sqc.Open();
+                SqlCommand cmd = new SqlCommand("Insert into Masini (Marca, Capacitate, An, Km, Combustibil, Pret, Descriere, CodSasiu) VALUES  (@Marca, @Capacitate, @An, @Km, @Combustibil, @Pret, @Descriere, @CodSasiu)", sqc);
+                cmd.Parameters.AddWithValue("@Marca", textBox1.Text);
+                cmd.Parameters.AddWithValue("@Capacitate", textBox2.Text);
+                cmd.Parameters.AddWithValue("@An", textBox5.Text);
+                cmd.Parameters.AddWithValue("@Km", textBox4.Text);
+                cmd.Parameters.AddWithValue("@Combustibil", textBox3.Text);
+                cmd.Parameters.AddWithValue("@Pret", textBox6.Text);
+                cmd.Parameters.AddWithValue("@Descriere", textBox7.Text);
+                cmd.Parameters.AddWithValue("@CodSasiu", textBox8.Text);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Inregistrat");
+                sqc.Close();
+                textBox1.Text = "";
+                textBox2.Text = "";
+                textBox3.Text = "";
+                textBox4.Text = "";
+                textBox5.Text = "";
+                textBox6.Text = "";
+                textBox7.Text = "";
+                textBox8.Text = "";
+            }
         }
-
         private void label6_Click(object sender, EventArgs e)
         {
 
