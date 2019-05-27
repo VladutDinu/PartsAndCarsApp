@@ -31,7 +31,7 @@ namespace WindowsFormsApp4
                 while (rdr.Read())
                 {
                     CarsInfo c = new CarsInfo();
-                    c.id = Convert.ToInt32(rdr[0]);
+                    c.Id = Convert.ToInt32(rdr[0]);
                     c.Marca = rdr[1].ToString();
                     c.Capacitate = rdr[2].ToString();
                     c.Km = rdr[3].ToString();
@@ -50,7 +50,7 @@ namespace WindowsFormsApp4
             getData(qrr);
             for (int i = 0; i < cd.Count(); i++)
             {
-                dataGridView1.Rows.Add(cd[i].id, cd[i].Marca, cd[i].Capacitate, cd[i].Km, cd[i].Pret, cd[i].Combustibil, cd[i].An, cd[i].Descriere, cd[i].CodSasiu);
+                dataGridView1.Rows.Add(cd[i].Id, cd[i].Marca, cd[i].Capacitate, cd[i].Km, cd[i].Pret, cd[i].Combustibil, cd[i].An, cd[i].Descriere, cd[i].CodSasiu);
             }
         }
         Form m;
@@ -203,7 +203,7 @@ namespace WindowsFormsApp4
             getData(check());
             for (int i = 0; i < cd.Count(); i++)
             {
-                dataGridView1.Rows.Add(cd[i].id, cd[i].Marca, cd[i].Capacitate, cd[i].Km, cd[i].Pret, cd[i].Combustibil, cd[i].An, cd[i].Descriere, cd[i].CodSasiu);
+                dataGridView1.Rows.Add(cd[i].Id, cd[i].Marca, cd[i].Capacitate, cd[i].Km, cd[i].Pret, cd[i].Combustibil, cd[i].An, cd[i].Descriere, cd[i].CodSasiu);
             }
 
         }
@@ -249,11 +249,10 @@ namespace WindowsFormsApp4
     
         private void buy()
         {
-            query = "DELETE From Masini where Id=@Id";
+            query = "DELETE From Masini where Id=" + dataGridView1.CurrentRow.Cells[0].Value.ToString();
             SqlConnection con = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(query, con);
             con.Open();
-            cmd.Parameters.AddWithValue("@id", dataGridView1.CurrentRow.Cells[0].Value.ToString());
             cmd.ExecuteNonQuery();
             con.Close();
             dataGridView1.DataSource = null;
@@ -264,7 +263,7 @@ namespace WindowsFormsApp4
         private void button3_Click(object sender, EventArgs e)
         {
             buy();
-            add(query);
+            add("Select * from Masini");
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

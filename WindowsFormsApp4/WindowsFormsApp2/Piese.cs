@@ -32,7 +32,7 @@ namespace WindowsFormsApp2
                 while (rdr.Read())
                 {
                     PartsInfo c = new PartsInfo();
-                    c.id = Convert.ToInt32(rdr[0]);
+                    c.Id = Convert.ToInt32(rdr[0]);
                     c.Producator = rdr[1].ToString();
                     c.Pret = rdr[2].ToString();
                     c.Material = rdr[3].ToString();
@@ -57,7 +57,7 @@ namespace WindowsFormsApp2
             getData(query);
             for (int i = 0; i < cd.Count(); i++)
             {
-                dataGridView1.Rows.Add(cd[i].id, cd[i].Producator, cd[i].Pret, cd[i].Material, cd[i].Descriere);
+                dataGridView1.Rows.Add(cd[i].Id, cd[i].Producator, cd[i].Pret, cd[i].Material, cd[i].Descriere);
             }
         }
         public Piese(Form fereastraInitiala)
@@ -69,11 +69,11 @@ namespace WindowsFormsApp2
         }
         private void buy()
         {
-            query = "DELETE From Piese where Id=@Id";
+            query = "DELETE From Piese where Id="+ dataGridView1.CurrentRow.Cells[0].Value.ToString();
             SqlConnection con = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(query, con);
             con.Open();
-            cmd.Parameters.AddWithValue("@Id", dataGridView1.CurrentRow.Cells[0].Value.ToString());
+           
             cmd.ExecuteNonQuery();
             con.Close();
             dataGridView1.DataSource = null;

@@ -10,7 +10,7 @@ namespace WindowsFormsApp2
     {
         private readonly string _connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
 
-        public Int32 id { get; set; }
+        public Int32 Id { get; set; }
         public string Producator { get; set; }
         public string Pret { get; set; }
         public string Material { get; set; }
