@@ -318,23 +318,26 @@ namespace WindowsFormsApp4
 
         private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
         {
-            char ch = e.KeyChar;
-            if (!char.IsDigit(ch) && ch != 8 && ch != 46)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
                 e.Handled = true;
+            }
         }
 
         private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
         {
-            char ch = e.KeyChar;
-            if (!char.IsDigit(ch) && ch != 8 && ch != 46)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
                 e.Handled = true;
+            }
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            char ch = e.KeyChar;
-            if (!char.IsDigit(ch) && ch != 8 && ch != 46)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
                 e.Handled = true;
+            }
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -344,23 +347,26 @@ namespace WindowsFormsApp4
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
-            char ch = e.KeyChar;
-            if (!char.IsDigit(ch) && ch != 8 && ch != 46)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
                 e.Handled = true;
+            }
         }
 
         private void textBox5_KeyPress(object sender, KeyPressEventArgs e)
         {
-            char ch = e.KeyChar;
-            if (!char.IsDigit(ch) && ch != 8 && ch != 46)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
                 e.Handled = true;
+            }
         }
 
         private void textBox6_KeyPress(object sender, KeyPressEventArgs e)
         {
-            char ch = e.KeyChar;
-            if (!char.IsDigit(ch) && ch != 8 && ch != 46)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
                 e.Handled = true;
+            }
         }
     }
 }

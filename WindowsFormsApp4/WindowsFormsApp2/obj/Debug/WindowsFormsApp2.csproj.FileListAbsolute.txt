@@ -23,3 +23,32 @@ C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsAp
 C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp2\bin\Debug\MetroFramework.Fonts.dll
 C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.CopyComplete
 C:\Users\dinui\Desktop\PartsAndCarsApp-developer\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.SearchPiese.resources
+C:\Users\Parvan Andrei\Documents\PartsAndCarsApp\WindowsFormsApp4\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe.config
+C:\Users\Parvan Andrei\Documents\PartsAndCarsApp\WindowsFormsApp4\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe
+C:\Users\Parvan Andrei\Documents\PartsAndCarsApp\WindowsFormsApp4\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.pdb
+C:\Users\Parvan Andrei\Documents\PartsAndCarsApp\WindowsFormsApp4\WindowsFormsApp2\bin\Debug\MetroFramework.dll
+C:\Users\Parvan Andrei\Documents\PartsAndCarsApp\WindowsFormsApp4\WindowsFormsApp2\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\Parvan Andrei\Documents\PartsAndCarsApp\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csprojAssemblyReference.cache
+C:\Users\Parvan Andrei\Documents\PartsAndCarsApp\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.AddPiese.resources
+C:\Users\Parvan Andrei\Documents\PartsAndCarsApp\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Piese.resources
+C:\Users\Parvan Andrei\Documents\PartsAndCarsApp\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Properties.Resources.resources
+C:\Users\Parvan Andrei\Documents\PartsAndCarsApp\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.SearchPiese.resources
+C:\Users\Parvan Andrei\Documents\PartsAndCarsApp\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.GenerateResource.cache
+C:\Users\Parvan Andrei\Documents\PartsAndCarsApp\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.CoreCompileInputs.cache
+C:\Users\Parvan Andrei\Documents\PartsAndCarsApp\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.CopyComplete
+C:\Users\Parvan Andrei\Documents\PartsAndCarsApp\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.exe
+C:\Users\Parvan Andrei\Documents\PartsAndCarsApp\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.pdb
+C:\Users\dinui\Desktop\site pc\PartsAndCarsApp-master\WindowsFormsApp4\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe.config
+C:\Users\dinui\Desktop\site pc\PartsAndCarsApp-master\WindowsFormsApp4\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe
+C:\Users\dinui\Desktop\site pc\PartsAndCarsApp-master\WindowsFormsApp4\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.pdb
+C:\Users\dinui\Desktop\site pc\PartsAndCarsApp-master\WindowsFormsApp4\WindowsFormsApp2\bin\Debug\MetroFramework.dll
+C:\Users\dinui\Desktop\site pc\PartsAndCarsApp-master\WindowsFormsApp4\WindowsFormsApp2\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\dinui\Desktop\site pc\PartsAndCarsApp-master\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.AddPiese.resources
+C:\Users\dinui\Desktop\site pc\PartsAndCarsApp-master\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Piese.resources
+C:\Users\dinui\Desktop\site pc\PartsAndCarsApp-master\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Properties.Resources.resources
+C:\Users\dinui\Desktop\site pc\PartsAndCarsApp-master\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.SearchPiese.resources
+C:\Users\dinui\Desktop\site pc\PartsAndCarsApp-master\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.GenerateResource.cache
+C:\Users\dinui\Desktop\site pc\PartsAndCarsApp-master\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.CoreCompileInputs.cache
+C:\Users\dinui\Desktop\site pc\PartsAndCarsApp-master\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.CopyComplete
+C:\Users\dinui\Desktop\site pc\PartsAndCarsApp-master\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.exe
+C:\Users\dinui\Desktop\site pc\PartsAndCarsApp-master\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.pdb

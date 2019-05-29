@@ -245,16 +245,18 @@ namespace WindowsFormsApp2
 
         private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
         {
-            char ch = e.KeyChar;
-            if (!char.IsDigit(ch) && ch != 8 && ch != 46)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
                 e.Handled = true;
+            }
         }
 
         private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
         {
-            char ch = e.KeyChar;
-            if (!char.IsDigit(ch) && ch != 8 && ch != 46)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
                 e.Handled = true;
+            }
         }
         public void sortBy(string c)
         {
