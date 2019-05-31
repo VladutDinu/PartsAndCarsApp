@@ -52,3 +52,4 @@ C:\Users\dinui\Desktop\site pc\PartsAndCarsApp-master\WindowsFormsApp4\WindowsFo
 C:\Users\dinui\Desktop\site pc\PartsAndCarsApp-master\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.CopyComplete
 C:\Users\dinui\Desktop\site pc\PartsAndCarsApp-master\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.exe
 C:\Users\dinui\Desktop\site pc\PartsAndCarsApp-master\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.pdb
+C:\Users\dinui\Desktop\site pc\PartsAndCarsApp-master\WindowsFormsApp4\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csprojAssemblyReference.cache

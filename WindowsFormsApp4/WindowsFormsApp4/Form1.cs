@@ -68,7 +68,7 @@ namespace WindowsFormsApp4
                 ss.Show();
 
             }
-            else MessageBox.Show("Nume/Parola gresita.");
+            else MessageBox.Show("Nume/Parola gresita. Te rog sa introduci numele si parola dorita si apoi sa apesi butonul de inregistrare.");
             
         }
         private bool check()
